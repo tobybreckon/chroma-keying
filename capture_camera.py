@@ -10,15 +10,21 @@ import cv2
 
 # define video capture with access to camera 0
 
-cap = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0)
 
 # read an image from the camera
 
-_, frame = cap.read()
+_, image = camera.read()
+
+# perform any processing on the image here
+# by uncommenting (remove #) one or both of the following lines
+
+# cv2.flip(image,-1)
+# image = cv2.GaussianBlur(image,(5,5),0)
 
 # display the image in the window
 
-cv2.imshow("Live Camera Input", frame)
+cv2.imshow("Live Camera Input", image)
 
 # wait indefinitely for any key press to exist
 
