@@ -14,7 +14,7 @@ Four quick steps to get you started:
     * It will then say _"Do you want to install the recommended extensions for Python?"_
     * Click _"Install"_ and wait ~1 minute whilst everything is setup for you
 
-**You are now ready to start coding** - make sure you have all the supporting materials to hand, and skip on to **Task 1**
+**You are now ready to start coding** - make sure you have all the supporting materials to hand, and go to **Task 1**
 
 #### Supporting Materials
 
