@@ -20,8 +20,8 @@ Four quick steps to get you started:
 
 _[ All supplied if you doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
 
-- a Linxux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
-- 1 x USB webcam (that works under Linux with the UVC
+- a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
+- 1 x USB webcam (that works under Linux with the UVC driver)
 - 1 x green covered chroma-keying material
 
 ## Task 1 ....
