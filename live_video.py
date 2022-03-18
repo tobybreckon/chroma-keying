@@ -9,10 +9,6 @@ import math
 
 #####################################################################
 
-keep_processing = True
-
-#####################################################################
-
 # this function is called as a call-back everytime the trackbar is moved
 # (here we just do nothing)
 
@@ -50,6 +46,8 @@ cv2.createTrackbar(
     nothing)
 
 #####################################################################
+
+keep_processing = True
 
 while (keep_processing):
 
