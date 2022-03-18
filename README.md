@@ -52,7 +52,7 @@ Computers normally store an image as a giant matrix with three values for each p
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HSV Diagram](img/HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
+- hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
 - you should see a grey image displayed but with the green material colour retained (in green)
 - _[ you can exit the program by pressing any key ]_
 
@@ -80,24 +80,30 @@ In order to make this approach easier to use we can add a point and click colour
 To try this out:
 
 - copy and paste the code from this example [hsv_colour_select.py](hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
-- you should initially see a live colour image from the camera; _right click_ on any object to select it's Hue
+- hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
+- you should initially see a live colour image from the camera; _left click_ on any object to select its Hue
 - you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma-keying material)
 - _[ you can exit the program by pressing ```x``` ]_
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and [hsv_viewer.py](hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached.
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and [hsv_viewer.py](hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding channels in corresponding the RGB channels (yet appear in all 3), and similarly vibrant colours have 
 
 ## Task 3 - Building an Invisibility Cloak
 
-[ use the basic code from original blog / Chris email but inc. colour selector ]
+From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software.
+
+To try this out:
+- copy and paste the code from this example [invisibility_cloak.py](invisibility_cloak.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- point your webcam to a clear(ish) area of the room with no people or (green) chroma-keying material in view; and run the code (click _"Run > Run Without Debugging"_)
+- ......
+- bring the (green) chroma-keying material into view and _left click_ on it to select its Hue
 
 [ stuff on opening/closing morph - with examples ]
 
 **Advanced:** [ sliders for the various parameters ]
 
-## Task 3 - Building an Improved Invisibility Cloak
+###  Improving our Invisibility ....
 
 [ histogram back-projection to image (?), alpha blending (?) etc ]
 
