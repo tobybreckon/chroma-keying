@@ -30,14 +30,16 @@ _[ All supplied if you doing this as a visitor to [Computer Science at Durham Un
 
 ## Task 1 - Capture a Live Camera Image
 
-![RGB Diagram](img/vs-code-python-run.png)
-
 Once you have completed the **Getting Started** steps:
 
 - copy and paste the code from this example [capture_camera.py](capture_camera.py) into your Visual Studio Code window
 - save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
 - _[ make sure your usb webcam is connected to your PC ]_
-- click _"Run > Run Without Debugging"_, you should see a window with an image captured from the camera displayed.
+- click _"Run > Run Without Debugging"_
+
+![RGB Diagram](img/vs-code-python-run.png)
+
+- you should see a window with an image captured from the camera displayed.
 
 You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the usb webcam a couple of times and re-run the program (last step above).
 
@@ -55,7 +57,7 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't too much affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values to identify image regions, but can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation.
 
-![RGB Diagram](img/RGB.png)![HSV Diagram](img/HSV.png)
+![RGB Diagram](img/RGB-HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
@@ -97,6 +99,8 @@ You may wish to look at the mouse callback function (see ```mouse_callback()``` 
 
 ## Task 3 - Building an Invisibility Cloak
 
+![cloaking 1](img/cloaked-example-01.png)
+
 From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software.
 
 To try this out:
@@ -107,7 +111,7 @@ To try this out:
 
 You should now see objects that are covered by the chroma-keying material are cloaked using information background from the captured scene background image.
 
-![cloaking 1](img/cloaked-example-01.png)![cloaking 1](img/cloaked-example-02.png)
+![cloaking 1](img/cloaked-example-02.png)
 
 You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
 
@@ -117,7 +121,7 @@ You can reset the background image by _pressing the space key_; you can _right c
 
 ###  Improving our Invisibility ....
 
-[ histogram back-projection to image (?), alpha blending (?) etc ]
+[ convex hull of largest contour, alpha blending (?) etc ]
 
 **Advanced:** [ sliders for the various parameters ]
 
