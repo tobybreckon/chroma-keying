@@ -103,7 +103,6 @@ while (keep_processing):
     cv2.imshow(window_name, image_combined)
 
     # start the event loop - if user presses "x" then exit
-
     # wait 40ms for a key press from the user (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(40) & 0xFF
