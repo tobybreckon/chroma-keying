@@ -30,5 +30,9 @@ cv2.imshow("Live Camera Input", image)
 
 cv2.waitKey(0)
 
+#####################################################################
+
+# Author : Toby Breckon, toby.breckon@durham.ac.uk
+# Copyright (c) 2022 Dept Computer Science, Durham University, UK
 
 #####################################################################
