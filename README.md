@@ -31,23 +31,30 @@ Once you have completed the **Getting Started** steps:
 - copy and paste the code from this example [capture_camera.py](capture_camera.py) into your Visual Studio Code window
 - save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
 - _[ make sure your usb webcam is connected to your PC ]_
-- click "Run > Run Without Debugging", you should see a window with an image captured
+- click _"Run > Run Without Debugging"_, you should see a window with an image captured
 
 You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the usb webcam a couple of times and re-run the program (last step above).
 
 You may now also wish to try the following:
 
-- re-orienting the image if it is upside down: find the function ```cv2.flip(image,-1`)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be positive, odd numbers. 
+- re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
+- adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+
+**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other filtering effects
 
 
-## Task 2 ....
+## Task 2 - Identifying an Image Region by Hue
 
+[ to come directly from Magnus's 2nd task here ]
 
-## Task 3 ....
+## Task 3 - Building an Invisibility Cloak
 
+[ use the basic code from original blog / Chris email ]
 
-## Task 4 ....
+## Task 3 - Building an Improved Invisibility Cloak
 
+[ add colour selector, histogram back-projection to image (?), alpha blending (?) etc ]
 
-## Bonus Task
+## Bonus Task - Machine Learning Based Invisibility
+
+[ use pre-trained Mask R-CNN, detect people as masks - then feed that into the earlier invisibility "engine" of Task 3]
