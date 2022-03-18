@@ -46,6 +46,7 @@ You may now also wish to try the following:
 ## Task 2 - Identifying an Image Region by Hue
 
 Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't too much affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values to identify image regions, but can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HSV Diagram](img/HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
