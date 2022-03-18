@@ -40,12 +40,12 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
 - adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other filtering effects
+**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 
 ## Task 2 - Identifying an Image Region by Hue
 
-[ to come directly from Magnus's 2nd task here ]
+[ to come directly from Magnus's 2nd task here + add colour picker for Hue ]
 
 ## Task 3 - Building an Invisibility Cloak
 
@@ -58,3 +58,5 @@ You may now also wish to try the following:
 ## Bonus Task - Machine Learning Based Invisibility
 
 [ use pre-trained Mask R-CNN, detect people as masks - then feed that into the earlier invisibility "engine" of Task 3]
+
+*Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/blob/master/colour_query.py)
