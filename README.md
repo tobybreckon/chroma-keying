@@ -40,23 +40,33 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
 - adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
+**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it, and then run it (click _"Run > Run Without Debugging"_) as before. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 
 ## Task 2 - Identifying an Image Region by Hue
+![HSV Diagram](img/HSV.png)
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you want to specify the colour in a way that isn't too much affected by how light or dark the lighting on the object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values, but can be done by looking at the hue of the object.
 
 [ to come directly from Magnus's 2nd task here + add colour picker for Hue ]
+
+**Advanced:** [ existing RGB  / HSV viewers from Toby IP examples ]
 
 ## Task 3 - Building an Invisibility Cloak
 
 [ use the basic code from original blog / Chris email ]
 
+**Advanced:** [ sliders for the various parameters ]
+
 ## Task 3 - Building an Improved Invisibility Cloak
 
 [ add colour selector, histogram back-projection to image (?), alpha blending (?) etc ]
 
+**Advanced:** [ sliders for the various parameters ]
+
 ## Bonus Task - Machine Learning Based Invisibility
 
-[ use pre-trained Mask R-CNN, detect people as masks - then feed that into the earlier invisibility "engine" of Task 3]
+[ use pre-trained Mask R-CNN, detect people as masks based on Toby's existing CV teaching example - then feed that into the earlier invisibility "engine" of Task 3]
 
-*Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/blob/master/colour_query.py)
+**Advanced:** [ change the selected object ]
+
+*Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
