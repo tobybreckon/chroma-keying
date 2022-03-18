@@ -79,7 +79,7 @@ In order to make this approach easier to use we can add a point and click colour
 
 To try this out:
 
-- copy and paste the code from this example [hsv_colour.py](hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [hsv_colour_select.py](hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
 - you should initially see a live colour image from the camera; _right click_ on any object to select it's Hue
 - you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma-keying material)
