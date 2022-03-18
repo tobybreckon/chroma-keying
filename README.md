@@ -87,7 +87,7 @@ To try this out:
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and [hsv_viewer.py](hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding channels in corresponding the RGB channels (yet appear in all 3), and similarly vibrant colours have 
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and [hsv_viewer.py](hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding channels in corresponding the RGB channels (yet appear in all 3), and similarly vibrant colours have
 
 ## Task 3 - Building an Invisibility Cloak
 
@@ -96,10 +96,14 @@ From all of the image processing functionality we have built up so far, we can n
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](invisibility_cloak.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - point your webcam to a clear(ish) area of the room with no people or (green) chroma-keying material in view; and run the code (click _"Run > Run Without Debugging"_)
-- ......
-- bring the (green) chroma-keying material into view and _left click_ on it to select its Hue
+- _[ a window of the current background image captured by the code should be displayed in one window, and the live image view in another ]_
+- bring the (green) chroma-keying material into view and _left click_ on it to select its Hue as before
 
-[ stuff on opening/closing morph - with examples ]
+You should now see objects that are covered by the chroma-keying material are cloaked using information background from the captured scene background image.
+
+You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
+
+[ add stuff on opening/closing morph - with examples ]
 
 **Advanced:** [ sliders for the various parameters ]
 
