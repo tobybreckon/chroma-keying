@@ -87,7 +87,7 @@ To try this out:
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** [ existing RGB  / HSV viewers from Toby IP examples ]
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and 
 
 ## Task 3 - Building an Invisibility Cloak
 
