@@ -4,6 +4,8 @@ This repository contains a set of computer science taster coding excercises for 
 
 ## Getting Started
 
+![RGB Diagram](img/vs-code-python-setup.png)
+
 Four quick steps to get you started:
 
 1. Ensure the computer is booted into Linux
@@ -13,6 +15,8 @@ Four quick steps to get you started:
     * Click _"Selection a language"_ and choose _"Python"_
     * It will then say _"Do you want to install the recommended extensions for Python?"_
     * Click _"Install"_ and wait ~1 minute whilst everything is setup for you
+
+![RGB Diagram](img/vs-code-python-installed.png)
 
 **You are now ready to start coding** - make sure you have all the supporting materials to hand, and go to **Task 1**
 
@@ -25,6 +29,8 @@ _[ All supplied if you doing this as a visitor to [Computer Science at Durham Un
 - 1 x green covered chroma-keying material
 
 ## Task 1 - Capture a Live Camera Image
+
+![RGB Diagram](img/vs-code-python-run.png)
 
 Once you have completed the **Getting Started** steps:
 
@@ -49,7 +55,7 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't too much affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values to identify image regions, but can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HSV Diagram](img/HSV.png)
+![RGB Diagram](img/RGB.png)![HSV Diagram](img/HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
@@ -100,6 +106,8 @@ To try this out:
 - bring the (green) chroma-keying material into view and _left click_ on it to select its Hue as before
 
 You should now see objects that are covered by the chroma-keying material are cloaked using information background from the captured scene background image.
+
+![cloaking 1](img/cloaked-example-01.png)![cloaking 1](img/cloaked-example-02.png)
 
 You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
 
