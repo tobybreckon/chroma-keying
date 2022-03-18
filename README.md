@@ -40,7 +40,9 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
 - adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
+**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
+
+By varying the filter sizes you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 
 ## Task 2 - Identifying an Image Region by Hue
@@ -52,6 +54,14 @@ Computers normally store an image as a giant matrix with three values for each p
 - copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
 - you should see a grey image displayed but with the green material colour retained (in green)
+- _[ you can exit the program by pressing any key ]_
+
+_If it doesn't work for you, you may need to adjust the range settings for the Hue value (first value of array) to get the correct range of green Hue, in the code lines:_
+
+```
+lower_green = np.array([75,50,50])
+upper_green = np.array([100,255,255])
+```
 
 ### How does this work ?
 
@@ -63,19 +73,33 @@ The variables ```lower_green``` and ```upper_green``` in the program are used to
 
 The function ```cv2.inRange(...)``` is used to create a mask - a matrix of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a ```bitwise-and()``` with the inverted mask to keep only pixels that were not green, and the other from a bitwise-and of the original image and the mask to keep only the pink pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
-[ .... + now add colour picker for Hue ]
+## And now with point and click ....
+
+In order to make this approach easier to use we can add a point and click colour selector via the use of a mouse callback function, and combine this with our earlier live camera video display code.
+
+To try this out:
+
+- copy and paste the code from this example [hsv_colour.py](hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
+- you should initially see a live colour image from the camera; _right click_ on any object to select it's Hue
+- you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma-keying material)
+- _[ you can exit the program by pressing ```x``` ]_
+
+You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
 **Advanced:** [ existing RGB  / HSV viewers from Toby IP examples ]
 
 ## Task 3 - Building an Invisibility Cloak
 
-[ use the basic code from original blog / Chris email ]
+[ use the basic code from original blog / Chris email but inc. colour selector ]
+
+[ stuff on opening/closing morph - with examples ]
 
 **Advanced:** [ sliders for the various parameters ]
 
 ## Task 3 - Building an Improved Invisibility Cloak
 
-[ add colour selector, histogram back-projection to image (?), alpha blending (?) etc ]
+[ histogram back-projection to image (?), alpha blending (?) etc ]
 
 **Advanced:** [ sliders for the various parameters ]
 
