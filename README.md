@@ -31,7 +31,7 @@ Once you have completed the **Getting Started** steps:
 - copy and paste the code from this example [capture_camera.py](capture_camera.py) into your Visual Studio Code window
 - save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
 - _[ make sure your usb webcam is connected to your PC ]_
-- click _"Run > Run Without Debugging"_, you should see a window with an image captured
+- click _"Run > Run Without Debugging"_, you should see a window with an image captured from the camera displayed.
 
 You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the usb webcam a couple of times and re-run the program (last step above).
 
@@ -40,14 +40,29 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
 - adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it, and then run it (click _"Run > Run Without Debugging"_) as before. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
+**Advanced:** you may wish to try this example [live_video.py](live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before. You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 
 ## Task 2 - Identifying an Image Region by Hue
 
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you want to specify the colour in a way that isn't too much affected by how light or dark the lighting on the object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values, but can be done by looking at the hue of the object.![HSV Diagram](img/HSV.png)
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't too much affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This is tricky when specifying ranges of RGB values to identify image regions, but can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HSV Diagram](img/HSV.png)
 
-[ to come directly from Magnus's 2nd task here + add colour picker for Hue ]
+- copy and paste the code from this example [hsv_colour.py](hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- hold up the (green) chroma-keying material and Run it (click _"Run > Run Without Debugging"_)
+- you should see a grey image displayed but with the green material colour retained (in green)
+
+### How does this work ?
+
+The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue give the essential colour (wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the pixel, as depicted in this image.
+
+By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the console.
+
+The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma-keying material, and Saturation and Value values between 50 and 255, i.e. weak and dark up to strong and bright green.
+
+The function ```cv2.inRange(...)``` is used to create a mask - a matrix of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a ```bitwise-and()``` with the inverted mask to keep only pixels that were not green, and the other from a bitwise-and of the original image and the mask to keep only the pink pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
+
+[ .... + now add colour picker for Hue ]
 
 **Advanced:** [ existing RGB  / HSV viewers from Toby IP examples ]
 
