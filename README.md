@@ -87,7 +87,7 @@ To try this out:
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and 
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](rgb_viewer.py) and [hsv_viewer.py](hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached.
 
 ## Task 3 - Building an Invisibility Cloak
 
