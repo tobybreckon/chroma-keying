@@ -1,6 +1,6 @@
 # Colour Selection and Filtering in Real-time Video
 
-This repository contains a set of computer science taster coding excercises for colour filtering from a live video image, including Harry Potter style invisibility cloaking. It is designed to give you a starter experience in Python coding and real-time image manipuluation.
+This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking. It is designed to give you a starter experience in Python coding and real-time image manipulation.
 
 ## Getting Started
 
@@ -115,9 +115,9 @@ You should now see objects that are covered by the chroma-keying material are cl
 
 You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection
 
-[ add stuff on opening/closing morph - with examples ]
+### How does this work ?
 
-**Advanced:** [ sliders for the various parameters ]
+[ add stuff on opening/closing morph - with examples ]
 
 ###  Improving our Invisibility ....
 

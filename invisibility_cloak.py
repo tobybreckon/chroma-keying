@@ -90,7 +90,7 @@ while (keep_processing):
 
     foreground_mask = cv2.inRange(image_HSV, lower_green, upper_green)
 
-    # logically invert the foreground mask ising NOT() to get the background mask
+    # logically invert the foreground mask to get the background mask using logical NOT
 
     background_mask = cv2.bitwise_not(foreground_mask)
 
