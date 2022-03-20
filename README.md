@@ -79,7 +79,7 @@ By specifying a tight range of Hue values, and a very wide range of Saturation a
 
 The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma-keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
 
-The function ```cv2.inRange(...)``` is used to create a mask - a matrix of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and the other from a logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
+The function ```cv2.inRange(...)``` is used to create a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white (binary) mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a bit-wise logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and another from a bit-wise logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
 ## And now with point and click ....
 
@@ -117,7 +117,15 @@ You can reset the background image by _pressing the space key_; you can _right c
 
 ### How does this work ?
 
-[ add stuff on opening/closing morph - with examples ]
+When the program starts up, it stores an initial image of the clear area of the room with no people or (green) chroma-keying material in view. This is our _background_ image.
+
+Next, we use our earlier approach to isolate the image region with a green Hue, as a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We call this the _foreground mask_ as it contains the camera image region that we wish to make invisible.  By inverting our _foreground mask_ using a bit-wise logical NOT operation (```bitwise_not()```), we can obtain a _background mask_ that conversely contains the camera image region that we do not wish to make invisible.
+
+Now, by performing a bit-wise logical AND operation between our _foreground mask_ and our original _background_ image we can isolate the pixels from the _background_ image that need to be used to cloak the image region with a green Hue (```cloaking_fill```). Similarly, by performing a bit-wise logical AND operation between the camera image and the _background mask_ we can identify the region of camera image that does not need to be cloaked (```current_background```). By combining the output of these two AND operations, we can obtain our cloaked image via the use of a bit-wise logical OR operation (```bitwise_or()```).
+
+As bit-wise logical operations such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
+
+_Details_: 
 
 ###  Improving our Invisibility ....
 

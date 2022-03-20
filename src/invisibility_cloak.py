@@ -53,7 +53,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(3)
 
 # define display window
 
@@ -105,11 +105,11 @@ while (keep_processing):
 
     cloaking_fill = cv2.bitwise_and(background, background, mask = foreground_mask_morphed)
 
-    # cut out the sub-part of the live image we need using logical AND
+    # cut out the sub-part of the camera image we need using logical AND
 
     current_background = cv2.bitwise_and(image, image, mask = background_mask)
 
-    # combine both using logical OR : TODO - make this bit better
+    # combine both using logical OR
 
     cloaked_image = cv2.bitwise_or(current_background, cloaking_fill)
 
