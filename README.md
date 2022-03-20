@@ -1,6 +1,6 @@
 # Colour Selection and Filtering in Real-time Video
 
-This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking. It is designed to give you a starter experience in Python coding and real-time image manipulation.
+This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking via a technique known as chroma keying. It is designed to give you a starter experience in Python coding and real-time image manipulation.
 
 ## Getting Started
 
@@ -26,7 +26,7 @@ _[ All supplied if you doing this as a visitor to [Computer Science at Durham Un
 
 - a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
 - 1 x USB webcam (that works under Linux with the UVC driver)
-- 1 x green covered chroma-keying material
+- 1 x green covered chroma keying material
 
 ## Task 1 - Capture a Live Camera Image
 
@@ -60,7 +60,7 @@ Computers normally store an image as a giant matrix with three values for each p
 ![RGB Diagram](img/RGB-HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](src/hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
+- hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should see a grey image displayed but with the green material colour retained (in green)
 - _[ you can exit the program by pressing any key ]_
 
@@ -77,7 +77,7 @@ The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image rep
 
 By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the terminal.
 
-The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma-keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
+The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
 
 The function ```cv2.inRange(...)``` is used to create a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white (binary) mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a bit-wise logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and another from a bit-wise logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
@@ -88,9 +88,9 @@ In order to make this approach easier to use we can add a point and click colour
 To try this out:
 
 - copy and paste the code from this example [hsv_colour_select.py](src/hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma-keying material and run it (click _"Run > Run Without Debugging"_)
+- hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should initially see a live colour image from the camera; _left click_ on any object to select its Hue
-- you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma-keying material)
+- you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma keying material)
 - _[ you can exit the program by pressing ```x``` ]_
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
@@ -105,11 +105,11 @@ From all of the image processing functionality we have built up so far, we can n
 
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- point your webcam to a clear(ish) area of the room with no people or (green) chroma-keying material in view; and run the code (click _"Run > Run Without Debugging"_)
+- point your webcam to a clear(ish) area of the room with no people or (green) chroma keying material in view; and run the code (click _"Run > Run Without Debugging"_)
 - _[ a window of the current background image captured by the code should be displayed in one window, and the live image view in another ]_
-- bring the (green) chroma-keying material into view and _left click_ on it to select its Hue as before
+- bring the (green) chroma keying material into view and _left click_ on it to select its Hue as before
 
-You should now see objects that are covered by the chroma-keying material are cloaked using information background from the captured scene background image.
+You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
 
 ![cloaking 1](img/cloaked-example-02.png)
 
@@ -117,7 +117,7 @@ You can reset the background image by _pressing the space key_; you can _right c
 
 ### How does this work ?
 
-When the program starts up, it stores an initial image of the clear area of the room with no people or (green) chroma-keying material in view. This is our _background_ image.
+When the program starts up, it stores an initial image of the clear area of the room with no people or (green) chroma keying material in view. This is our _background_ image.
 
 Next, we use our earlier approach to isolate the image region with a green Hue, as a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We call this the _foreground mask_ as it contains the camera image region that we wish to make invisible.  By inverting our _foreground mask_ using a bit-wise logical NOT operation (```bitwise_not()```), we can obtain a _background mask_ that conversely contains the camera image region that we do not wish to make invisible.
 
@@ -125,7 +125,7 @@ Now, by performing a bit-wise logical AND operation between our _foreground mask
 
 As bit-wise logical operations such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
-_Details_: 
+_Details_: In order to clean up the _foreground mask_ region we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
 
 ###  Improving our Invisibility ....
 
