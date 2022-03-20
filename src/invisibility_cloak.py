@@ -11,7 +11,7 @@ import numpy as np
 
 # define the range of hues to detect - set automatically using mouse
 
-lower_green = np.uint8(np.array([0,0,0]))
+lower_green = np.uint8(np.array([255,0,0]))
 upper_green = np.uint8(np.array([255,255,255]))
 
 #####################################################################
@@ -53,7 +53,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(3)
+camera = cv2.VideoCapture(0)
 
 # define display window
 
