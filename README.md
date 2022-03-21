@@ -133,7 +133,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
 
-- **multi-band blending**: 
+- **feathered blending**: 
 
 [ convex hull of largest contour, alpha blending (?) etc ]
 
