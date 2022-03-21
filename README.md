@@ -158,6 +158,8 @@ You should now see your own chroma keyed backdrop where the (green) chroma keyin
 
 We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
+##
+
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
 
 **Acknowledgements:** based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
