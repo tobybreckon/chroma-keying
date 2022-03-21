@@ -54,7 +54,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(2)
 
 # define display window
 
@@ -102,20 +102,35 @@ while (keep_processing):
 
     foreground_mask = cv2.bitwise_not(background_mask)
 
+    # extract the set of contours around the foreground mask and then the
+    # largest contour as the foreground object of interest. Update the foreground
+    # mask with all the pixels inside this contour
+
+    contours, _ = cv2.findContours(foreground_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    if (len(contours) > 0):
+        largest_contour = max(contours, key = cv2.contourArea)
+        foreground_mask_object = np.zeros((height, width))
+        cv2.fillPoly(foreground_mask_object, [largest_contour], (255))
+
+    # recompute the background mask based on the updated foreground mask
+
+    background_mask = ((np.ones((height, width)) * 255) - foreground_mask_object).astype('uint8')
+
     # cut out the sub-part of the stored background we need using logical AND
 
-    replacement = cv2.bitwise_and(background, background, mask = background_mask)
+    # replacement = cv2.bitwise_and(background, background, mask = background_mask)
 
     # construct 3-channel RGB feathered masks for blending
 
-    foreground_mask_feathered = cv2.GaussianBlur(foreground_mask, (15,15),0) / 255.0
-    background_mask_feathered = np.ones((height, width)) - (foreground_mask_feathered / 255.0)
+    foreground_mask_feathered = cv2.blur(foreground_mask,(15,15)) / 255.0
+    background_mask_feathered = cv2.blur(background_mask,(15,15)) / 255.0
     background_mask_feathered = cv2.merge([background_mask_feathered, background_mask_feathered, background_mask_feathered])
     foreground_mask_feathered = cv2.merge([foreground_mask_feathered, foreground_mask_feathered, foreground_mask_feathered])
 
     # combine current camera image with cloaked region via feathered blending
 
-    choma_key_image = ((background_mask_feathered * replacement) + (foreground_mask_feathered * image)).astype('uint8')
+    choma_key_image = ((background_mask_feathered * background) + (foreground_mask_feathered * image)).astype('uint8')
 
     # display image with cloaking present
 
