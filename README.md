@@ -95,7 +95,7 @@ To try this out:
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](src/rgb_viewer.py) and [hsv_viewer.py](src/hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding channels in corresponding the RGB channels (yet appear in all 3), and similarly vibrant colours have
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](src/rgb_viewer.py) and [hsv_viewer.py](src/hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding colour channels of the RGB channels (yet appear in all 3), and similarly vibrant colours have strong responses in the Hue and Saturation channels of HSV.
 
 ## Task 3 - Building an Invisibility Cloak
 
