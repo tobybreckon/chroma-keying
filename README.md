@@ -123,7 +123,7 @@ Next, we use our earlier approach to isolate the image region with a green Hue, 
 
 Now, by performing a bit-wise logical AND operation between our _foreground mask_ and our original _background_ image we can isolate the pixels from the _background_ image that need to be used to cloak the image region with a green Hue (```cloaking_fill```). Similarly, by performing a bit-wise logical AND operation between the camera image and the _background mask_ we can identify the region of camera image that does not need to be cloaked (```current_background```). By combining the output of these two AND operations, we can obtain our cloaked image via the use of a bit-wise logical OR operation (```bitwise_or()```).
 
-As bit-wise logical operations such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
+As **bit-wise logical operations** such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
 _Details_: In order to clean up the _foreground mask_ region we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
 
@@ -136,6 +136,8 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 - **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
 To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py).
+
+Again as **arithmetic operations** such as addition, substraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
 To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines).
 
