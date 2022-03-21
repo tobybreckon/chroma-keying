@@ -101,7 +101,7 @@ You may wish to look at the mouse callback function (see ```mouse_callback()``` 
 
 ![cloaking 1](img/cloaked-example-01.png)
 
-From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software.
+From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software using a technique known as [chroma keying]().
 
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
@@ -129,13 +129,17 @@ _Details_: In order to clean up the _foreground mask_ region we perform a couple
 
 ###  Improving our Invisibility ....
 
+In order to improve our cloaking approach, we are now going to introduce a couple of core concepts from computational geometry and imaging:
+
+- **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
+
+- **multi-band blending**: 
+
 [ convex hull of largest contour, alpha blending (?) etc ]
 
-**Advanced:** [ sliders for the various parameters ]
+## Bonus Task - Chroma Keying for Real ...
 
-## Bonus Task - Machine Learning Based Invisibility
-
-[ use pre-trained Mask R-CNN, detect people as masks based on Toby's existing CV teaching example - then feed that into the earlier invisibility "engine" of Task 3]
+[ put yourself in front of a false background using an inverse to the invisibility cloak appraoch ...]
 
 **Advanced:** [ change the selected object ]
 
