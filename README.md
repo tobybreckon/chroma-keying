@@ -139,7 +139,7 @@ To try out these improvements, try the following code example as before - [invis
 
 To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines).
 
-## Bonus Task - Chroma Keying for Real ...
+## Task 4 - Chroma Keying for Real ...
 
 [ TBC - put yourself in front of a full screen green chroma key background and using an inverse to the invisibility cloak approach put yourself in front of a false background ...]
 
