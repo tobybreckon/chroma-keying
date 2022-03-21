@@ -156,7 +156,9 @@ You should now see your own chroma keyed backdrop where the (green) chroma keyin
 
 ### How does this work ?
 
-We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
+We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. In addition, we adapt the our earlier contour extraction approach to extrast the largest foreground object in the image. We then use this to update our _foreground mask_.
+
+We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
 ##
 
