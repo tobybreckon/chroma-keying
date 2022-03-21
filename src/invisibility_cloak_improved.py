@@ -55,7 +55,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(2)
 
 # define display window
 
@@ -110,19 +110,24 @@ while (keep_processing):
         hull = cv2.convexHull(np.vstack(list(contours[i] for i in range(len(contours)))))
         cv2.fillPoly(foreground_mask_morphed, [hull], (255,255,255))
 
+    # logically invert the foreground mask to get the background mask using logical NOT
+
+    background_mask = cv2.bitwise_not(foreground_mask_morphed)
+
     # cut out the sub-part of the stored background we need using logical AND
 
     cloaking_fill = cv2.bitwise_and(background, background, mask = foreground_mask_morphed)
 
     # construct 3-channel RGB feathered background mask for blending
 
-    foreground_mask_feathered = cv2.GaussianBlur(foreground_mask_morphed,(15,15),0) / 255.0
-    background_mask_feathered = np.ones((height, width)) - (foreground_mask_morphed / 255.0)
+    foreground_mask_feathered = cv2.blur(foreground_mask_morphed,(15,15)) / 255.0
+    background_mask_feathered = cv2.blur(background_mask,(15,15)) / 255.0
     background_mask_feathered = cv2.merge([background_mask_feathered, background_mask_feathered, background_mask_feathered])
+    foreground_mask_feathered = cv2.merge([foreground_mask_feathered, foreground_mask_feathered, foreground_mask_feathered])
 
     # combine current camera image with cloaked region via feathered blending
 
-    cloaked_image = ((background_mask_feathered * image) + (cloaking_fill)).astype('uint8')
+    cloaked_image = ((background_mask_feathered * image) + (foreground_mask_feathered * background)).astype('uint8')
 
     # display image with cloaking present
 
