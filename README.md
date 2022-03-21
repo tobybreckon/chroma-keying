@@ -141,6 +141,6 @@ To explore how these improvements work, edit the code to display the _foreground
 
 ## Bonus Task - Chroma Keying for Real ...
 
-[ put yourself in front of a full screen green chroma key background and using an inverse to the invisibility cloak approach put yourself in front of a false background ...]
+[ TBC - put yourself in front of a full screen green chroma key background and using an inverse to the invisibility cloak approach put yourself in front of a false background ...]
 
 *Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
