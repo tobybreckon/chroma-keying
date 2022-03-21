@@ -16,7 +16,7 @@ camera = cv2.VideoCapture(0)
 # define display window
 
 window_name = "Live Camera Input - HSV Channels (left to right - H | S | V)"
-cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
 #####################################################################
 

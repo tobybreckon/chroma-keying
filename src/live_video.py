@@ -25,7 +25,7 @@ camera = cv2.VideoCapture(0)
 # define display window
 
 window_name = "Live Camera Input with Blurring"
-cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
 # add some track bar GUI controllers for smoothing filter parameters
 
