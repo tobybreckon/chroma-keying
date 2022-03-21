@@ -1,4 +1,4 @@
-# Colour Selection and Filtering in Real-time Video
+# Colour Selection and Filtering For Chroma Keying in Real-time Video
 
 This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking via a technique known as chroma keying. It is designed to give you a starter experience in Python coding and real-time image manipulation.
 
@@ -41,12 +41,12 @@ Once you have completed the **Getting Started** steps:
 
 - you should see a window with an image captured from the camera displayed.
 
-You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the usb webcam a couple of times and re-run the program (last step above).
+You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
 You may now also wish to try the following:
 
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containin ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
 **Advanced:** you may wish to try this example [live_video.py](src/live_video.py) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
 
@@ -143,14 +143,14 @@ To explore how these improvements work, edit the code to display the _foreground
 
 ![cloaking 1](img/chroma-key-example-01.png)
 
-In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a vitual background in the same way that chroma keying is used as a special effect in the film industry (or today how some background changing feature in video conferencing tools such as Zoom and MS Teams work).
+In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a virtual background in the same way that chroma keying is used as a special effect in the film industry (or today how some background changing feature in video conferencing tools such as Zoom and MS Teams work).
 
 To try this out:
 - copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying_background.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer)) or perhaps of [Durham Catherdral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
+- download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer)) or perhaps of [Durham Cathedral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
 - run the code (click _"Run > Run Without Debugging"_)
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
--  _left click_ somewhere on your green backgrop it to select its Hue as before
+-  _left click_ somewhere on your green backgrob it to select its Hue as before
 
 You should now see your own chroma keyed backdrop where the (green) chroma keying material has been replaced with the image of your choice.
 
@@ -158,5 +158,6 @@ You should now see your own chroma keyed backdrop where the (green) chroma keyin
 
 We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
 
-*Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
+**Acknowledgements:** based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
