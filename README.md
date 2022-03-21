@@ -137,7 +137,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py).
 
-Again as **arithmetic operations** such as addition, substraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
+Again as **arithmetic operations** such as addition, subtraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
 To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines).
 
