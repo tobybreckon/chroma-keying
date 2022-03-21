@@ -72,19 +72,8 @@ cv2.setMouseCallback(window_name, mouse_callback)
 # first, take an image of the background image
 
 _, background = camera.read()
-cv2.imshow("Current Background", background)
-
-#####################################################################
-
-# set up the multi-band blending pipeline and it's variables
-
-blender = cv2.detail.Blender_createDefault(cv2.detail.BLENDER_MULTI_BAND, try_gpu=True)
-
 height, width, _ = background.shape
-blender.prepare((0, 0, height, width))
-
-blended = (np.zeros((height, width, 3))).astype('uint8')
-blended_mask = (np.ones((height, width))*255).astype('uint8')
+cv2.imshow("Current Background", background)
 
 #####################################################################
 
@@ -104,10 +93,6 @@ while (keep_processing):
 
     foreground_mask = cv2.inRange(image_HSV, lower_green, upper_green)
 
-    # logically invert the foreground mask to get the background mask using logical NOT
-
-    background_mask = cv2.bitwise_not(foreground_mask)
-
     # perform morphological opening and dilation on the foreground mask
 
     foreground_mask_morphed = cv2.morphologyEx(foreground_mask,
@@ -122,26 +107,20 @@ while (keep_processing):
     contours, _ = cv2.findContours(foreground_mask_morphed,
                                     cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if (len(contours) > 0):
-        hull = cv2.convexHull(np.vstack(contours[i] for i in range(len(contours))))
+        hull = cv2.convexHull(np.vstack(list(contours[i] for i in range(len(contours)))))
         cv2.fillPoly(foreground_mask_morphed, [hull], (255,255,255))
 
     # cut out the sub-part of the stored background we need using logical AND
 
     cloaking_fill = cv2.bitwise_and(background, background, mask = foreground_mask_morphed)
 
-    # cut out the sub-part of the camera image we need using logical AND
+    # construct 3-channel RGB feathered background mask for blending
 
-    current_background = cv2.bitwise_and(image, image, mask = background_mask)
+    foreground_mask_feathered = cv2.GaussianBlur(foreground_mask_morphed,(15,15),0) / 255.0
+    background_mask_feathered = np.ones((height, width)) - (foreground_mask_morphed / 255.0)
+    background_mask_feathered = cv2.merge([background_mask_feathered, background_mask_feathered, background_mask_feathered])
 
-    # combine both using logical OR
-    print(current_background.shape)
-    print(background_mask.shape)
-    blender.feed(current_background, background_mask, (0,0))
-    blender.feed(cloaking_fill, foreground_mask_morphed, (0,0))
-
-    cloaked_image, _ = blender.blend(blended, blended_mask)
-
-    # cloaked_image = cv2.bitwise_or(current_background, cloaking_fill)
+    cloaked_image = ((background_mask_feathered * image) + (cloaking_fill)).astype('uint8')
 
     # display image with cloaking present
 
