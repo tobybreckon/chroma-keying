@@ -1,6 +1,6 @@
 #####################################################################
 
-# Task 3 : run a live chroma keying demo using a background image saved
+# Task 4 : run a live chroma keying demo using a background image saved
 #          as background.jpg
 
 #####################################################################
@@ -54,7 +54,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 # define display window
 
