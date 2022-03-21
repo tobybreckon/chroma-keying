@@ -133,14 +133,30 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
 
-- **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-wegithts to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
+- **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
 To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py).
 
 To explore how these improvements work, edit the code to display the _foreground mask_ either before or after these steps have been applied (hint: look at the existing ```cv2.imshow(...)``` lines).
 
-## Task 4 - Chroma Keying for Real ...
+## Task 4 - Chroma Keying for Real by Faking it ...
 
-[ TBC - put yourself in front of a full screen green chroma key background and using an inverse to the invisibility cloak approach put yourself in front of a false background ...]
+![cloaking 1](img/chroma-key-example-01.png)
+
+In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a vitual background in the same way that chroma keying is used as a special effect in the film industry (or today how some background changing feature in video conferencing tools such as Zoom and MS Teams work).
+
+To try this out:
+- copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying_background.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer)) or perhaps of [Durham Catherdral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
+- run the code (click _"Run > Run Without Debugging"_)
+- try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
+-  _left click_ somewhere on your green backgrop it to select its Hue as before
+
+You should now see your own chroma keyed backdrop where the (green) chroma keying material has been replaced with the image of your choice.
+
+### How does this work ?
+
+We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
+
 
 *Acknowledgements:* based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
