@@ -129,13 +129,13 @@ _Details_: In order to clean up the _foreground mask_ region we perform a couple
 
 ###  Improving our Invisibility ....
 
-In order to improve our cloaking approach, we are now going to introduce a couple of core concepts from computational geometry and imaging:
+In order to improve our cloaking approach, we are now going to introduce a couple of common concepts from computational geometry and computer graphics:
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
 
-- **feathered blending**: 
+- **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-wegithts to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
-[ convex hull of largest contour, alpha blending (?) etc ]
+[ still to add - exposure compensation ]
 
 ## Bonus Task - Chroma Keying for Real ...
 
