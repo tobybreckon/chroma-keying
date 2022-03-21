@@ -2,7 +2,7 @@
 
 # Task 3 : run an improved live invisibility cloak demo using:
 #          (a) a convex hull operation around the foreground
-#          (b) mukti-band blenidng for compositing
+#          (b) feathered blenidng for compositing
 
 #####################################################################
 
@@ -48,7 +48,7 @@ def mouse_callback(event, x, y, flags, param):
 
     elif event == cv2.EVENT_RBUTTONDOWN:
 
-        lower_green = np.uint8(np.array([0,0,0]))
+        lower_green = np.uint8(np.array([255,0,0]))
         upper_green = np.uint8(np.array([255,255,255]))
 
 #####################################################################
@@ -120,6 +120,8 @@ while (keep_processing):
     background_mask_feathered = np.ones((height, width)) - (foreground_mask_morphed / 255.0)
     background_mask_feathered = cv2.merge([background_mask_feathered, background_mask_feathered, background_mask_feathered])
 
+    # combine current camera image with cloaked region via feathered blending
+
     cloaked_image = ((background_mask_feathered * image) + (cloaking_fill)).astype('uint8')
 
     # display image with cloaking present
@@ -143,7 +145,7 @@ while (keep_processing):
 
 #####################################################################
 
-# Author : Toby Breckon / Chris Willcocks
+# Author : Toby Breckon
 # Copyright (c) 2022 Dept Computer Science, Durham University, UK
 
 #####################################################################

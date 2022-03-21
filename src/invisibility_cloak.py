@@ -46,7 +46,7 @@ def mouse_callback(event, x, y, flags, param):
 
     elif event == cv2.EVENT_RBUTTONDOWN:
 
-        lower_green = np.uint8(np.array([0,0,0]))
+        lower_green = np.uint8(np.array([255,0,0]))
         upper_green = np.uint8(np.array([255,255,255]))
 
 #####################################################################
