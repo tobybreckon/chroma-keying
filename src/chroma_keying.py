@@ -124,7 +124,7 @@ while (keep_processing):
     background_mask_feathered = cv2.merge([background_mask_feathered, background_mask_feathered, background_mask_feathered])
     foreground_mask_feathered = cv2.merge([foreground_mask_feathered, foreground_mask_feathered, foreground_mask_feathered])
 
-    # combine current camera image with cloaked region via feathered blending
+    # combine current camera image with new background via feathered blending
 
     choma_key_image = ((background_mask_feathered * background) + (foreground_mask_feathered * image)).astype('uint8')
 
