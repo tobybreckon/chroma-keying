@@ -1,6 +1,6 @@
 # Colour Selection and Filtering For Chroma Keying in Real-time Video
 
-This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking via a technique known as chroma keying. It is designed to give you a starter experience in Python coding and real-time image manipulation.
+This repository contains a set of computer science taster coding exercises for colour filtering from a live video image, including _Harry Potter_ style invisibility cloaking via a technique known as [chroma keying](https://en.wikipedia.org/wiki/Chroma_key). It is designed to give you a starter experience in Python coding and real-time image manipulation.
 
 ## Getting Started
 
