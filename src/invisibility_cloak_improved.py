@@ -55,7 +55,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 # define display window
 
