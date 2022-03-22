@@ -117,10 +117,6 @@ while (keep_processing):
 
     background_mask = ((np.ones((height, width)) * 255) - foreground_mask_object).astype('uint8')
 
-    # cut out the sub-part of the stored background we need using logical AND
-
-    # replacement = cv2.bitwise_and(background, background, mask = background_mask)
-
     # construct 3-channel RGB feathered masks for blending
 
     foreground_mask_feathered = cv2.blur(foreground_mask,(15,15)) / 255.0
