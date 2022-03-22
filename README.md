@@ -152,7 +152,7 @@ To try this out:
 - download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer) or perhaps of [Durham Cathedral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg)) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
 - run the code (click _"Run > Run Without Debugging"_)
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
--  _left click_ somewhere on your green backgrob it to select its Hue as before
+-  _left click_ somewhere on your green backdrop it to select its Hue as before
 
 You should now see your own chroma keyed backdrop where the (green) chroma keying material has been replaced with the image of your choice.
 
@@ -165,5 +165,7 @@ We then use these masks, again with the use of feathering for _alpha_-blending t
 ## Additional Info
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
+
+**Developer Notes:** possible future additions = [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/).
 
 **Acknowledgements:** based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
