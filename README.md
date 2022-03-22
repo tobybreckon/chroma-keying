@@ -166,6 +166,6 @@ We then use these masks, again with the use of feathering for _alpha_-blending t
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
 
-**Developer Notes:** possible future additions = [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/).
+**Developer Notes:** to add - additional versions with sliders controls for morphological operations, Hue range + any other parameters ; possible future enhancements - [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/).
 
 **Acknowledgements:** based on a prior set of exercises by [Magnus Bordewich](https://github.com/MagnusBordewich/ObjectTracking/), prior image processing teaching examples by [Toby Breckon](https://github.com/tobybreckon/python-examples-ip/) and the inspirational blog post of [Puranjay Kwatra](https://www.analyticsvidhya.com/blog/2021/07/harry-potters-invisible-cloak-using-opencv-python/).
