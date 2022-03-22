@@ -148,7 +148,7 @@ To explore how these improvements work, edit the code to display the _foreground
 In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a virtual background in the same way that chroma keying is used as a special effect in the film industry (or today how some of the background changing features in video conferencing tools such as Zoom and MS Teams work).
 
 To try this out:
-- copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying_background.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer) or perhaps of [Durham Cathedral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg)) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
 - run the code (click _"Run > Run Without Debugging"_)
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
