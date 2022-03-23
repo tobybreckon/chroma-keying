@@ -19,31 +19,31 @@ _, image = camera.read()
 
 # convert the RGB images to HSV
 
-image_HSV = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 # print the HSV values of the middle pixel
 
 height, width, _ = image.shape
-print('Middle pixel HSV: ', image_HSV[int(height/2)][int(width/2)])
+print('Middle pixel HSV: ', image_hsv[int(height/2)][int(width/2)])
 
 # define the range of hues to detect - adjust these to detect different colours
 
-lower_green = np.array([75,50,50])
-upper_green = np.array([100,255,255])
+lower_green = np.array([75, 50, 50])
+upper_green = np.array([100, 255, 255])
 
 # create a mask that identifies the pixels in the range of hues
 
-mask = cv2.inRange(image_HSV, lower_green,upper_green)
+mask = cv2.inRange(image_hsv, lower_green, upper_green)
 mask_inverted = cv2.bitwise_not(mask)
 
 # create a grey image and black out the masked area
 
-image_grey = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-image_grey = cv2.bitwise_and(image_grey,image_grey, mask = mask_inverted)
+image_grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+image_grey = cv2.bitwise_and(image_grey, image_grey, mask=mask_inverted)
 
 # black out unmasked area of original image
 
-image_masked = cv2.bitwise_and(image,image, mask = mask)
+image_masked = cv2.bitwise_and(image, image, mask=mask)
 
 # combine the two images for display
 
