@@ -128,7 +128,8 @@ while (keep_processing):
 
     # construct 3-channel RGB feathered background mask for blending
 
-    foreground_mask_feathered = cv2.blur(foreground_mask_morphed, (15, 15)) / 255.0
+    foreground_mask_feathered = cv2.blur(foreground_mask_morphed,
+                                         (15, 15)) / 255.0
     background_mask_feathered = cv2.blur(background_mask, (15, 15)) / 255.0
     background_mask_feathered = cv2.merge([background_mask_feathered,
                                            background_mask_feathered,
