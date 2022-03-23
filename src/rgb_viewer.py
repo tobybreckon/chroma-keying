@@ -39,7 +39,7 @@ while (keep_processing):
     blue = np.zeros(image.shape, dtype=np.uint8)
     blue[:, :, 0] = image[:, :, 0]
 
-    channels = np.hstack((np.hstack((red,green)), blue))
+    channels = np.hstack((np.hstack((red, green)), blue))
 
     # display image
 

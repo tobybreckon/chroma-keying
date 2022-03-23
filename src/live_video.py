@@ -12,6 +12,7 @@ import math
 # this function is called as a call-back everytime the trackbar is moved
 # (here we just do nothing)
 
+
 def nothing(x):
     pass
 
@@ -62,9 +63,9 @@ while (keep_processing):
     # get parameters from track bars
 
     smoothing_neighbourhood_x = cv2.getTrackbarPos("filter size - X",
-                                                 window_name)
+                                                   window_name)
     smoothing_neighbourhood_y = cv2.getTrackbarPos("filter size - Y",
-                                                 window_name)
+                                                   window_name)
 
     # check filter sizes are greater than 3 and odd
 
@@ -79,7 +80,7 @@ while (keep_processing):
     # performing smoothing on the image using a smoothing filter
 
     smoothed_image = cv2.GaussianBlur(image, (smoothing_neighbourhood_x,
-                                smoothing_neighbourhood_y), 0)
+                                      smoothing_neighbourhood_y), 0)
 
     # stop the timer and convert to milliseconds
     # (to see how long processing and display takes)
@@ -102,7 +103,6 @@ while (keep_processing):
     # depending on processing time taken (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(max(2, 40 - int(math.ceil(stop_t)))) & 0xFF
-
 
     if (key == ord('x')):
         keep_processing = False

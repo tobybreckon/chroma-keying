@@ -11,13 +11,14 @@ import numpy as np
 
 # define the range of hues to detect - set automatically using mouse
 
-lower_green = np.uint8(np.array([0,0,0]))
-upper_green = np.uint8(np.array([255,255,255]))
+lower_green = np.uint8(np.array([0, 0, 0]))
+upper_green = np.uint8(np.array([255, 255, 255]))
 
 #####################################################################
 
 # mouse callback function - activated on any mouse event (click, movement)
 # displays and sets Hue range based on right click location
+
 
 def mouse_callback(event, x, y, flags, param):
 
@@ -30,12 +31,12 @@ def mouse_callback(event, x, y, flags, param):
 
     if event == cv2.EVENT_LBUTTONDOWN:
         print("HSV colour @ position (%d,%d) = %s (bounds set with +/- 20)" %
-              (x, y, ', '.join(str(i) for i in image_HSV[y, x])))
+              (x, y, ', '.join(str(i) for i in image_hsv[y, x])))
 
         # set Hue bounds on the Hue with +/- 15 threshold on the range
 
-        upper_green[0] = image_HSV[y, x][0] + 20
-        lower_green[0] = image_HSV[y, x][0] - 20
+        upper_green[0] = image_hsv[y, x][0] + 20
+        lower_green[0] = image_hsv[y, x][0] - 20
 
         # set Saturation and Value to eliminate very dark, noisy image regions
 
@@ -48,6 +49,7 @@ def mouse_callback(event, x, y, flags, param):
 
     #    lower_green = np.uint8(np.array([0,0,0]))
     #    upper_green = np.uint8(np.array([255,255,255]))
+
 
 #####################################################################
 
@@ -77,21 +79,21 @@ while (keep_processing):
 
     # convert the RGB images to HSV
 
-    image_HSV = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     # create a mask that identifies the pixels in the range of hues
 
-    mask = cv2.inRange(image_HSV, lower_green, upper_green)
+    mask = cv2.inRange(image_hsv, lower_green, upper_green)
     mask_inverted = cv2.bitwise_not(mask)
 
     # create a grey image and black out the masked area
 
-    image_grey = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    image_grey = cv2.bitwise_and(image_grey,image_grey, mask = mask_inverted)
+    image_grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image_grey = cv2.bitwise_and(image_grey, image_grey, mask=mask_inverted)
 
     # black out unmasked area of original image
 
-    image_masked = cv2.bitwise_and(image, image, mask = mask)
+    image_masked = cv2.bitwise_and(image, image, mask=mask)
 
     # combine the two images for display
 
