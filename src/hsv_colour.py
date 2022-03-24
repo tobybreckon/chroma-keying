@@ -28,8 +28,8 @@ print('Middle pixel HSV: ', image_hsv[int(height/2)][int(width/2)])
 
 # define the range of hues to detect - adjust these to detect different colours
 
-lower_green = np.array([75, 50, 50])
-upper_green = np.array([100, 255, 255])
+lower_green = np.array([55, 50, 50])
+upper_green = np.array([95, 255, 255])
 
 # create a mask that identifies the pixels in the range of hues
 
