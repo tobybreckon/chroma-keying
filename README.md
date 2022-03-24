@@ -55,16 +55,16 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 ## Task 2 - Identifying an Image Region by Hue
 
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image then this can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+
 ![RGB Diagram](img/RGB-HSV.png)
-
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image then this can be tricky when specifying ranges of RGB values in order to identify image regions (diagram above, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram above, right).
-
-![HSV selected region](img/hsv-selected-colour-01.png)
 
 - copy and paste the code from this example [hsv_colour.py](src/hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
-- you should see a grey image displayed but with the green material colour retained (in green)
+- you should see a grey image displayed but with the green material colour retained (in green), as per the example below
 - _[ you can exit the program by pressing any key ]_
+
+![HSV selected region](img/hsv-selected-colour-01.png)
 
 _If it doesn't work for you, you may need to adjust the range settings for the Hue value (first value of array) to get the correct range of green Hue, in the code lines:_
 
