@@ -91,7 +91,7 @@ while (keep_processing):
 
     # set up a foreground mask image (all zeros == black)
 
-    foreground_mask = np.zeros((height,width,3), np.uint8)
+    foreground_mask = np.zeros((height,width,1), np.uint8)
 
     # create a 4D tensor (OpenCV 'blob') from image frame (pixels not
     # scaled, image resized)
@@ -149,10 +149,9 @@ while (keep_processing):
             # otherwise draw them as coloured overlays on the image
 
             if (do_invisibility):
-                foreground_mask[top:bottom+1, left:right+1][mask] = (
-                    [255,255,255]).astype(np.uint8)
+                foreground_mask[top:bottom+1, left:right+1][mask] = 255
             else:
-                foreground_mask[top:bottom+1, left:right+1][mask] = (
+                image[top:bottom+1, left:right+1][mask] = (
                     0.8 * colors[classId] + 0.2 * roi).astype(np.uint8)
 
     if (do_invisibility):
@@ -214,9 +213,9 @@ while (keep_processing):
         cv2.imshow(window_name, image)
 
     # start the event loop - if user presses "x" then exit
-    # wait 40ms for a key press from the user (i.e. 1000ms / 25 fps = 40 ms)
+    # wait just 2ms for a key press (as processsing here is slower)
 
-    key = cv2.waitKey(40) & 0xFF
+    key = cv2.waitKey(2) & 0xFF
 
     if (key == ord('x')):
         keep_processing = False
