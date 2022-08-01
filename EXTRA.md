@@ -11,17 +11,19 @@ based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn
 
 Some quick steps to get you setup for object detection:
 
-1. ....
-2.  ....
-3. ...
-4.  ...
-    * ...
-    * ...
-    * ...
+1. Download and save file [XXX](XXXX) (left click mouse, "Save Page As ...".
+2. Download and save file [XXX](XXXX) (left click mouse, "Save Page As ...".
+3. Open a command line Terminal (see image above) and enter the following command:
+```
+bash ./download-model.sh
+```
 
-**If all the setup steps ...** - make sure you have all the supporting materials to hand, and go to **Task 5** below.
+You should see some output as follows:
+![Terminal Output](img/XXXX.png)
 
-![Terminal Output](img/XXX.png)
+4.  Open the file [XXX](XXXX) than you downloaded in Visual Studio Code (File menu -> Open File)
+
+![Terminal Output](img/XXXX.png)
 
 ## Task 5 - Invisibility Cloaking via Object Detection
 
@@ -34,6 +36,9 @@ To try this out:
 - run the code (click _"Run > Run Without Debugging"_)
 - ....
 - ....
+
+
+- opencv.init
 
 ![object cloaking](img/XXX.png)
 
@@ -51,7 +56,7 @@ This approach is using a trained object detection and segmentation model known a
 
 If time allows you may want to try extending this code with the following features:
 - ....
-- ....
+- .... edit classes file ... (remove lines, make copy first - can always re-download)
 - ....
 - ....
 
