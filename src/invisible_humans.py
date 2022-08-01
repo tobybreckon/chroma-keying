@@ -45,7 +45,7 @@ with open(classesFile, 'rt') as f:
 # load configuration and weight files for the model and load the network
 # using them
 
-net = cv2.dnn.readNet("object_detection_classes_coco.txt",
+net = cv2.dnn.readNet("mask_rcnn_inception_v2_coco_2018_01_28.pbtxt",
                       "mask_rcnn_inception_v2_coco_2018_01_28/"
                       + "/frozen_inference_graph.pb")
 
@@ -71,7 +71,7 @@ for i in range(1, len(classes) + 1):
                     np.random.randint(0, 256, [3],
                     np.uint8)) / 2
                   )
-    del colors[0]
+del colors[0]
 
 #####################################################################
 
@@ -86,8 +86,8 @@ while (keep_processing):
 
     # get image dimensions
 
-    height = frame.shape[0]
-    width = frame.shape[1]
+    height = image.shape[0]
+    width = image.shape[1]
 
     # set up a foreground mask image (all zeros == black)
 
@@ -121,17 +121,17 @@ while (keep_processing):
             # **** get object info: type, bounding box
 
             classId = int(box[1])
-            left = int(frameW * box[3])
-            top = int(frameH * box[4])
-            right = int(frameW * box[5])
-            bottom = int(frameH * box[6])
+            left = int(width * box[3])
+            top = int(height * box[4])
+            right = int(width * box[5])
+            bottom = int(height * box[6])
 
             # **** check bounding box inside the image width/height
 
-            left = max(0, min(left, frameW - 1))
-            top = max(0, min(top, frameH - 1))
-            right = max(0, min(right, frameW - 1))
-            bottom = max(0, min(bottom, frameH - 1))
+            left = max(0, min(left, width - 1))
+            top = max(0, min(top, height - 1))
+            right = max(0, min(right, width - 1))
+            bottom = max(0, min(bottom, height - 1))
 
             # **** draw object instance mask
             # get mask, re-size from 28x28 to size of bounding box size in image
