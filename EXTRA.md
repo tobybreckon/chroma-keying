@@ -19,17 +19,25 @@ Some quick steps to get you setup for object detection:
 ![Open Terminal](img/open-terminal.png)
 
 
-... and then enter the following command:
+... and then enter the following command to download the pre-trained object detection models we are going to use:
 ```
 bash ./download-model.sh
 ```
 
-You should now see some output as follows:
-![Terminal Output](img/XXXX.png)
+After the downloads complete, should now see some final output in the Terminal as follows:
+```
+....
+Performing MD5 file verification checks ...
+object_detection_classes_coco.txt: OK
+mask_rcnn_inception_v2_coco_2018_01_28.pbtxt: OK
+mask_rcnn_inception_v2_coco_2018_01_28/frozen_inference_graph.pb: OK
 
-4.  Finally, open the file [invisible_objects.py](src/invisible_objects.py?raw=1) that you downloaded in Visual Studio Code (File menu -> Open File)
+```
+which this means the download was successful and the files verified (using a mathematical checksum) correctly.
 
-![Open File](img/XXXX.png)
+
+4.  Finally, open the file [invisible_objects.py](src/invisible_objects.py?raw=1) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
+![Open File](img/open-file.png)
 
 ## Task 5 - Invisibility Cloaking via Object Detection
 
@@ -65,7 +73,9 @@ By training this neural network model, using 1000s and 1000s of labelled image e
 
 If you want to see all the different types of objects that the model we are using is trained to on, open the file ``object_detection_classes_coco.txt`` in Visual Studio Code.
 
-The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes and labels for all objects download and run the following code file [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py).
+The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the following code file [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py).
+
+![full Mask R-CNN](img/mask-r-cnn-full.png)
 
 ### Some other things to try ...
 
