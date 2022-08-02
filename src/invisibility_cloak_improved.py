@@ -62,7 +62,7 @@ camera = cv2.VideoCapture(0)
 # define display window
 
 window_name = "Live Camera Input with Invisibility Cloaking"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 # set the mouse call back function that will be called every time
 # the mouse is clicked inside the display window
@@ -154,6 +154,15 @@ while (keep_processing):
 
     if (key == ord('x')):
         keep_processing = False
+
+    # - if user presses "f" then switch to fullscreen
+
+    elif (key == ord('f')):
+        print("\n -- toggle fullscreen.")
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN & 
+                              ~(int(cv2.getWindowProperty(window_name, 
+                              cv2.WND_PROP_FULLSCREEN))))
 
     # - if user presses space then reset background
 
