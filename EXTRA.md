@@ -73,7 +73,7 @@ By training this neural network model, using 1000s and 1000s of labelled image e
 
 If you want to see all the different types of objects that the model we are using is trained to on, open the file ``object_detection_classes_coco.txt`` in Visual Studio Code.
 
-The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the following code file [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py).
+The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the this [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py?raw=1) code file .
 
 ![full Mask R-CNN](img/mask-r-cnn-full.png)
 
@@ -82,7 +82,7 @@ The current version code file we are using ([invisible_objects.py](src/invisible
 If time allows you may want to try editing the ([invisible_objects.py](src/invisible_objects.py?raw=1)) code file to play with the following features:
 - changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
 - selectively making only certain objects invisible (hint: see code lines 138-142)
-- adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](https://github.com/tobybreckon/python-examples-cv/blob/master/gaussian.py))
+- adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](https://github.com/tobybreckon/python-examples-cv/blob/master/gaussian.py?raw=1))
 
 ## Additional Info
 
