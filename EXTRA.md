@@ -9,17 +9,19 @@ based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn
 
 Some quick steps to get you setup for object detection:
 
-![Download Task 5](img/download-task5.png)
-
 1. In the browser, download and save file the code file [invisible_objects.py](src/invisible_objects.py?raw=1) (left click mouse, __"Save Page As ..."__).
-
-![Download script](img/download-model-script.png)
+![Download Task 5](img/download-task5.png)
 
 2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__).
 
+![Download script](img/download-model-script.png)
+
+3. Open a command line Terminal (see image above):
+
 ![Open Terminal](img/open-terminal.png)
 
-3. Open a command line Terminal (see image above) and enter the following command:
+
+... and then enter the following command:
 ```
 bash ./download-model.sh
 ```
@@ -40,7 +42,7 @@ In this extra exercise, we make use of a deep machine learning based object dete
 Here we make use of a pre-trained model to be able to detect object masks within the image. We can then use these R-CNN generated object masks as the _foreground mask_ for our invisibility cloaking approach in place of using the green material.
 
 To try this out:
-- run the downloaded code file [invisible_objects.py](src/invisible_objects.py?raw=1)
+- run the downloaded code file [invisible_objects.py](src/invisible_objects.py?raw=1) in Visual Studio Code
 (click _"Run > Run Without Debugging"_)
 - you should now see 2 image windows displayed - one containing an initial background image, and one containing the mask output of the Mask R-CNN model (with each type of object over-shaded with a different colour)
 
