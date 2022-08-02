@@ -18,7 +18,7 @@ camera = cv2.VideoCapture(0)
 # define display window
 
 window_name = "Live Camera Input with Invisibility Cloaking"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 #####################################################################
 
@@ -229,6 +229,15 @@ while (keep_processing):
     elif (key == ord('i')):
 
         do_invisibility = not (do_invisibility)
+
+    # - if user presses "f" then switch to fullscreen
+
+    elif (key == ord('f')):
+        print("\n -- toggle fullscreen.")
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN & 
+                              ~(int(cv2.getWindowProperty(window_name, 
+                              cv2.WND_PROP_FULLSCREEN))))
 
     # - if user presses space then reset background
 
