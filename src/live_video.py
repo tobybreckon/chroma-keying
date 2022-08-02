@@ -70,11 +70,11 @@ while (keep_processing):
     # check filter sizes are greater than 3 and odd
 
     smoothing_neighbourhood_x = max(3, smoothing_neighbourhood_x)
-    if not(smoothing_neighbourhood_x % 2):
+    if not (smoothing_neighbourhood_x % 2):
         smoothing_neighbourhood_x = smoothing_neighbourhood_x + 1
 
     smoothing_neighbourhood_y = max(3, smoothing_neighbourhood_y)
-    if not(smoothing_neighbourhood_y % 2):
+    if not (smoothing_neighbourhood_y % 2):
         smoothing_neighbourhood_y = smoothing_neighbourhood_y + 1
 
     # performing smoothing on the image using a smoothing filter

@@ -228,7 +228,7 @@ while (keep_processing):
 
     elif (key == ord('i')):
 
-        do_invisibility = not(do_invisibility)
+        do_invisibility = not (do_invisibility)
 
     # - if user presses space then reset background
 
