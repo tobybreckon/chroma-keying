@@ -166,6 +166,10 @@ We are basically inverting the concept of the invisibility mask such that we con
 
 We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
+### Further tasks
+
+If you have finished all of this you may find the [Extra Task on Invisibility Using Machine Learning](EXTRA.md) interesting.
+
 ## Additional Info
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
