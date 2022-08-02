@@ -32,18 +32,14 @@ cv2.imshow("Current Background", background)
 
 # initialise the object detection neural network (uses Mask R-CNN)
 
-inpWidth = 800       # Width of network's input image
-inpHeight = 800      # Height of network's input image
-
-# Load names of classes from file
+# load names of classes from file
 
 classesFile = "object_detection_classes_coco.txt"
 classes = None
 with open(classesFile, 'rt') as f:
     classes = f.read().rstrip('\n').split('\n')
 
-# load configuration and weight files for the model and load the network
-# using them
+# load configuration and weight files for the Mask R-CNN model
 
 net = cv2.dnn.readNet("mask_rcnn_inception_v2_coco_2018_01_28.pbtxt",
                       "mask_rcnn_inception_v2_coco_2018_01_28/"
@@ -96,7 +92,7 @@ while (keep_processing):
     # create a 4D tensor (OpenCV 'blob') from image frame (pixels not
     # scaled, image resized)
     tensor = cv2.dnn.blobFromImage(
-                image, 1.0, (inpWidth, inpHeight), [0, 0, 0],
+                image, 1.0, (800, 800), [0, 0, 0],
                 swapRB=True, crop=False)
 
     # set the input to the CNN network
