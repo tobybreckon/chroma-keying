@@ -46,35 +46,37 @@ To try this out:
 
 As before, you you can reset the background image by _pressing the space key_ but now you can _press the **i key to turn on invisibility**_ for the detected objects in the scene.
 
-However, **you may notice the program is running very slowly and sluggishly**. This is because of all the processing required to 
+![object cloaking](img/mask-r-cnn-cloaking-01.png)
 
+However, **you may notice the program is running very slowly and sluggishly**. This is because of all the processing required to process the complexity of the Mask R-CNN model operations is being carried out on the CPU (Central Processing Unit, main PC processor). In order to overcome this, we can switch to using the faster GPU (Graphics Processing Unit) which can perform the arithmetic operations of the neural network model much more efficiently. In order to do this, enter the command ``opencv.init`` into the command terminal at the bottom of the Visual Studio Code window as follows:
 
-- opencv.init
+![run opencv.init](img/run-opencv-init.png)
 
-![object cloaking](img/XXX.png)
+On the Durham Linux system, this re-initialises the Python software environment to use the GPU (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_).
 
-You should now see a scene where .....
+![object cloaking](img/mask-r-cnn-cloaking-02.png)
 
 ### How does this work ?
 
-This approach is using a trained object detection and segmentation model known as a [Mask Region-Based Convolutional Neural Network](https://viso.ai/deep-learning/mask-r-cnn/) ....
+This approach is using a trained object detection and segmentation model known as a [Mask Region-Based Convolutional Neural Network](https://viso.ai/deep-learning/mask-r-cnn/) which uses a series of
+convolutional processing layers to extract intermediate feature representations of the objects in the scene.
 
-.....
+By training this neural network model, using 1000s and 1000s of labelled image examples of different types of objects, we can set the weights of these convolutional operations to extract intermediate feature representations that allow the network to recognise different types of objects by label (i.e. _"What is it?_ -[person, car, dog, cat, cow, ...]) and to be able to localise them within the scene (i.e. show us either a mask region or a bounding box).
 
-.....
+If you want to see all the different types of objects that the model we are using is trained to on, open the file ``object_detection_classes_coco.txt`` in Visual Studio Code.
+
+The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes and labels for all objects download and run the following code file [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py).
 
 ### Some other things to try ...
 
-If time allows you may want to try extending this code with the following features:
-- ....
-- .... edit classes file ... (remove lines, make copy first - can always re-download)
-- ....
-- ....
-
+If time allows you may want to try editing the ([invisible_objects.py](src/invisible_objects.py?raw=1)) code file to play with the following features:
+- changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
+- selectively making only certain objects invisible (hint: see code lines 138-142)
+- adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](https://github.com/tobybreckon/python-examples-cv/blob/master/gaussian.py))
 
 ## Additional Info
 
-**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.6.x. (08/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux Tumbleweed.
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.6.x. (08/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux Tumbleweed. The use of the ``opencv.init`` command to activate a version of OpenCV built against CUDA is specific to the setup on the DU LDS system; the general alternative is to built OpenCV from source with ``WITH_CUDA`` and ``OPENCV_DNN_CUDA`` enabled - for any configuration this can be tested via this [version.py](https://github.com/tobybreckon/python-examples-ip/blob/master/version.py) script.
 
 **Developer Notes:** to add - additional versions with sliders controls for object confidence, perhaps.
 
