@@ -15,7 +15,7 @@ Some quick steps to get you setup for object detection:
 2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__).
 ![Download script](img/download-model-script.png)
 
-3. Open a command line Terminal (see image above):
+3. Open a command line Terminal as follows:
 ![Open Terminal](img/open-terminal.png)
 
 
