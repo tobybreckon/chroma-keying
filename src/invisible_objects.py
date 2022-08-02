@@ -32,18 +32,18 @@ cv2.imshow("Current Background", background)
 
 # initialise the object detection neural network (uses Mask R-CNN)
 
-# load names of classes from file
-
-classesFile = "object_detection_classes_coco.txt"
-classes = None
-with open(classesFile, 'rt') as f:
-    classes = f.read().rstrip('\n').split('\n')
-
 # load configuration and weight files for the Mask R-CNN model
 
 net = cv2.dnn.readNet("mask_rcnn_inception_v2_coco_2018_01_28.pbtxt",
                       "mask_rcnn_inception_v2_coco_2018_01_28/"
                       + "/frozen_inference_graph.pb")
+
+# load names of object classes (types) from file
+
+classesFile = "object_detection_classes_coco.txt"
+classes = None
+with open(classesFile, 'rt') as f:
+    classes = f.read().rstrip('\n').split('\n')
 
 # set up compute target as one of [GPU, OpenCL, CPU] - uncomment as needed
 
@@ -58,18 +58,20 @@ net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
 #####################################################################
 
-# set up an array of colours in order to draw detected objects
+# set up an array of colours in order to draw detected object masks
 
 np.random.seed(324)
 colors = [np.array([0, 0, 0], np.uint8)]
 for i in range(1, len(classes) + 1):
     colors.append((colors[i - 1] +
-                    np.random.randint(0, 256, [3],
-                    np.uint8)) / 2
+                   np.random.randint(0, 256, [3],
+                   np.uint8)) / 2
                   )
 del colors[0]
 
 #####################################################################
+
+# main processing loop
 
 keep_processing = True
 do_invisibility = False
@@ -87,10 +89,10 @@ while (keep_processing):
 
     # set up a foreground mask image (all zeros == black)
 
-    foreground_mask = np.zeros((height,width,1), np.uint8)
+    foreground_mask = np.zeros((height, width, 1), np.uint8)
 
-    # create a 4D tensor (OpenCV 'blob') from image frame (pixels not
-    # scaled, image resized)
+    # create a 4D tensor (OpenCV 'blob') from image frame
+    # (N.B. technical aspect: pixels not scaled, image resized)
     tensor = cv2.dnn.blobFromImage(
                 image, 1.0, (800, 800), [0, 0, 0],
                 swapRB=True, crop=False)
@@ -98,11 +100,10 @@ while (keep_processing):
     # set the input to the CNN network
     net.setInput(tensor)
 
-    # runs forward inference to get output of the final output layers
+    # runs forward inference to get object masks from final output layer
     boxes, masks = net.forward(['detection_out_final', 'detection_masks'])
 
-    # get number of classes detected and number of detections
-    numClasses = masks.shape[1]
+    # get number of objects detected
     numDetections = boxes.shape[2]
 
     # draw segmentation - draw instance segments
@@ -130,8 +131,9 @@ while (keep_processing):
             bottom = max(0, min(bottom, height - 1))
 
             # **** draw object instance mask
-            # get mask, re-size from 28x28 to size of bounding box size in image
-            # then theshold at 0.5
+
+            # get mask, re-size from 28x28 network output
+            # to size of bounding box size in image then theshold mask at 0.5
 
             classMask = mask[classId]
             classMask = cv2.resize(classMask,
@@ -142,7 +144,7 @@ while (keep_processing):
             roi = image[top:bottom+1, left:right+1][mask]
 
             # if invisibility is ON, draw objects into foreground mask
-            # otherwise draw them as coloured overlays on the image
+            # otherwise draw them as coloured overlays on the camera image
 
             if (do_invisibility):
                 foreground_mask[top:bottom+1, left:right+1][mask] = 255
@@ -151,6 +153,8 @@ while (keep_processing):
                     0.8 * colors[classId] + 0.2 * roi).astype(np.uint8)
 
     if (do_invisibility):
+
+        # all as per earlier Task 3 and Task 4 code
 
         # perform morphological opening and dilation on the foreground mask
 
@@ -164,21 +168,22 @@ while (keep_processing):
                                                    iterations=5)
 
         # extract the set of contours around the foreground mask and then the
-        # convex hull around that set of contours. Update the foreground mask with
-        # the convex hull of all the pixels in the region
+        # convex hull around that set of contours. Update the foreground mask
+        # with the convex hull of all the pixels in the region
 
         contours, _ = cv2.findContours(foreground_mask_morphed,
-                                       cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                                       cv2.RETR_EXTERNAL,
+                                       cv2.CHAIN_APPROX_SIMPLE)
         if (len(contours) > 0):
             hull = cv2.convexHull(np.vstack(list(contours[i]
-                                    for i in range(len(contours)))))
+                                            for i in range(len(contours)))))
             cv2.fillPoly(foreground_mask_morphed, [hull], (255, 255, 255))
 
-        # logically invert the foreground mask to get the background mask via NOT
+        # logically invert foreground mask to get the background mask via NOT
 
         background_mask = cv2.bitwise_not(foreground_mask_morphed)
 
-        # cut out the sub-part of the stored background we need using logical AND
+        # cut out sub-part of the stored background we need using logical AND
 
         cloaking_fill = cv2.bitwise_and(background, background,
                                         mask=foreground_mask_morphed)
@@ -195,16 +200,19 @@ while (keep_processing):
                                                foreground_mask_feathered,
                                                foreground_mask_feathered])
 
-        # combine current camera image with cloaked region via feathered blending
+        # combine current image with cloaked region via feathered blending
 
         cloaked_image = ((background_mask_feathered * image) +
-                         (foreground_mask_feathered * background)).astype('uint8')
+                         (foreground_mask_feathered * background)
+                         ).astype('uint8')
 
         # display image with cloaking present
 
         cv2.imshow(window_name, cloaked_image)
 
     else:
+
+        # display image with just object masks present
 
         cv2.imshow(window_name, image)
 
