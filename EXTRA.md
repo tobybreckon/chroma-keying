@@ -54,9 +54,11 @@ However, **you may notice the program is running very slowly and sluggishly**. T
 
 ![run opencv.init](img/run-opencv-init.png)
 
-On the Durham Linux system, this re-initialises the Python software environment to use the GPU (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_).
+On the Durham Linux system, this re-initialises the Python software environment to use the GPU (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_) to see things like this.
 
 ![object cloaking](img/mask-r-cnn-cloaking-02.png)
+
+If the object invisibility masking is not perfect, this is due to the simplicity of the Mask R-CNN object masks - you could try fixing this by increasing the number of morphological operations used to clean up the foreground mask in the code (hint: see code lines 161 - 168).
 
 ### How does this work ?
 
