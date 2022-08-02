@@ -13,11 +13,9 @@ Some quick steps to get you setup for object detection:
 ![Download Task 5](img/download-task5.png)
 
 2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__).
-
 ![Download script](img/download-model-script.png)
 
 3. Open a command line Terminal (see image above):
-
 ![Open Terminal](img/open-terminal.png)
 
 
@@ -51,11 +49,9 @@ As before, you you can reset the background image by _pressing the space key_ bu
 ![object cloaking](img/mask-r-cnn-cloaking-01.png)
 
 However, **you may notice the program is running very slowly and sluggishly**. This is because of all the processing required to process the complexity of the Mask R-CNN model operations is being carried out on the **CPU** (Central Processing Unit, main PC processor). In order to overcome this, we can switch to using the faster **GPU** (Graphics Processing Unit) which can perform the **arithmetic operations** of the neural network model much more efficiently. In order to do this, enter the command ``opencv.init`` into the command terminal at the bottom of the Visual Studio Code window as follows:
-
 ![run opencv.init](img/run-opencv-init.png)
 
-On the Durham Linux system, this re-initialises the Python software environment to use the **GPU** (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_) to see things like this.
-
+On the Durham Linux system, this re-initialises the Python software environment to use the **GPU** (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_) to see things like this:
 ![object cloaking](img/mask-r-cnn-cloaking-02.png)
 
 If the object invisibility masking is not perfect, this is due to the simplicity of the Mask R-CNN object masks - you could try fixing this by increasing the number of morphological operations used to clean up the foreground mask in the code (hint: see code lines 161 - 168).
