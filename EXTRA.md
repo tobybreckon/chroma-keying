@@ -51,7 +51,7 @@ To try this out:
 - run the downloaded code file [invisible_objects.py](src/invisible_objects.py?raw=1) in Visual Studio Code
 (click _"Run > Run Without Debugging"_)
 - you should now see 2 image windows displayed - one containing an initial background image, and one containing the mask output of the Mask R-CNN model (with each type of object over-shaded with a different colour)
-- you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f``` ]_)
+- you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
 
 As before, you you can reset the background image by _pressing the space key_ but now you can _press the **i key to turn on invisibility**_ for the detected objects in the scene.
 
