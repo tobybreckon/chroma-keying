@@ -16,7 +16,7 @@ camera = cv2.VideoCapture(0)
 # define display window
 
 window_name = "Live Camera Input - HSV Channels (left to right - H | S | V)"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 #####################################################################
 
@@ -54,6 +54,16 @@ while (keep_processing):
 
     if (key == ord('x')):
         keep_processing = False
+
+    # - if user presses "f" then switch to fullscreen
+
+    elif (key == ord('f')):
+        print("\n -- toggle fullscreen.")
+        last_fs = cv2.getWindowProperty(window_name,
+                                        cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN &
+                              ~(int(last_fs)))
 
 #####################################################################
 
