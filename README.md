@@ -14,7 +14,7 @@ Four quick steps to get you started:
 2.  Login with the provided username and password
 3.  Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
 4.  Within Visual Studio Code select menu item: File > New File
-    * Click _"Selection a language"_ and choose _"Python"_
+    * Choose _"Python"_ when you are prompted to select a language
     * It will then say _"Do you want to install the recommended extensions for Python?"_
     * Click _"Install"_ and wait ~1 minute whilst everything is set up for you
 
@@ -77,7 +77,7 @@ upper_green = np.array([95, 255, 255])
 
 ### How does this work ?
 
-The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue give the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
+The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue gives the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
 
 By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the terminal.
 
