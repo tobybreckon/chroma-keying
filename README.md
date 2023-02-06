@@ -16,7 +16,7 @@ Four quick steps to get you started:
 4.  Within Visual Studio Code select menu item: File > New File
     * Click _"Selection a language"_ and choose _"Python"_
     * It will then say _"Do you want to install the recommended extensions for Python?"_
-    * Click _"Install"_ and wait ~1 minute whilst everything is setup for you
+    * Click _"Install"_ and wait ~1 minute whilst everything is set up for you
 
 ![RGB Diagram](img/vs-code-python-installed.png)
 
@@ -43,12 +43,12 @@ Once you have completed the **Getting Started** steps:
 
 - you should see a window with an image captured from the camera displayed.
 
-You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
+You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
 You may now also wish to try the following:
 
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
 **Advanced:** you may wish to try this example [live_video.py](src/live_video.py?raw=1) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
 
@@ -57,7 +57,7 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 ## Task 2 - Identifying an Image Region by Hue
 
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image then this can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object by colour. However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
 
 ![RGB Diagram](img/RGB-HSV.png)
 
@@ -131,7 +131,7 @@ Now, by performing a bit-wise logical AND operation between our _foreground mask
 
 As **bit-wise logical operations** such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
-_Details_: In order to clean up the _foreground mask_ region we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
+_Details_: In order to clean up the _foreground mask_ region, we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
 
 ###  Improving our Invisibility ....
 
@@ -139,7 +139,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
 
-- **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
+- **feathered blending**: at the moment, the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
 To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1). Again, you may need to resize the live image view window with the mouse ( + _you can also turn fullscreen on/off by pressing ```f```_)
 
@@ -160,13 +160,13 @@ To try this out:
 - run the code (click _"Run > Run Without Debugging"_)
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
--  _left click_ somewhere on your green backdrop it to select its Hue as before
+-  _left click_ somewhere on your green backdrop to select its Hue as before
 
 You should now see your own chroma keyed backdrop where the (green) chroma keying material has been replaced with the image of your choice.
 
 ### How does this work ?
 
-We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. In addition, we adapt the our earlier contour extraction approach to extrast the largest foreground object in the image. We then use this to update our _foreground mask_.
+We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. In addition, we adapt our earlier contour extraction approach to extract the largest foreground object in the image. We then use this to update our _foreground mask_.
 
 We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
