@@ -11,12 +11,13 @@ This repository contains a set of computer science taster coding exercises for c
 Four quick steps to get you started:
 
 1. Ensure the computer is booted into Linux
-2.  Login with the provided username and password
-3.  Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
-4.  Within Visual Studio Code select menu item: File > New File
-    * Click _"Selection a language"_ and choose _"Python"_
+2. Login with the provided username and password
+3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
+4. Within Visual Studio Code select menu item: File > New File
+    * Choose _"Python"_ when you are prompted to select a language
+        - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
     * It will then say _"Do you want to install the recommended extensions for Python?"_
-    * Click _"Install"_ and wait ~1 minute whilst everything is setup for you
+    * Click _"Install"_ and wait ~1 minute whilst everything is set up for you
 
 ![RGB Diagram](img/vs-code-python-installed.png)
 
@@ -24,7 +25,7 @@ Four quick steps to get you started:
 
 #### Supporting Materials
 
-_[ All supplied if you doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
+_[ All supplied if you are doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
 
 - a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
 - 1 x USB webcam (that works under Linux with the UVC driver)
@@ -43,12 +44,12 @@ Once you have completed the **Getting Started** steps:
 
 - you should see a window with an image captured from the camera displayed.
 
-You should now see a live image from your webcam, _if not_ and you get an error try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
+You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
 You may now also wish to try the following:
 
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known an parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
 **Advanced:** you may wish to try this example [live_video.py](src/live_video.py?raw=1) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
 
@@ -57,7 +58,7 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 ## Task 2 - Identifying an Image Region by Hue
 
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object is by colour. However you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image then this can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object by colour. However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
 
 ![RGB Diagram](img/RGB-HSV.png)
 
@@ -77,11 +78,11 @@ upper_green = np.array([95, 255, 255])
 
 ### How does this work ?
 
-The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue give the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
+The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image representation from three RGB values for each pixel, to a Hue, Saturation and Value value for each pixel. Hue gives the essential colour (approx. equivalent to the wavelength), Saturation gives the intensity of that colour and Value gives the overall brightness of the colour at that pixel.
 
 By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the terminal.
 
-The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
+The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 55 and 95, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
 
 The function ```cv2.inRange(...)``` is used to create a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white (binary) mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a bit-wise logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and another from a bit-wise logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
@@ -131,7 +132,7 @@ Now, by performing a bit-wise logical AND operation between our _foreground mask
 
 As **bit-wise logical operations** such as NOT, AND and OR can be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
 
-_Details_: In order to clean up the _foreground mask_ region we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
+_Details_: In order to clean up the _foreground mask_ region, we perform a couple of morphological operations on the binary mask image to clean up the boundary of the foreground region and remove small holes in it due to imperfections in the selection of the green Hue pixels of the material. You can adjust the parameters of these operations in the code lines ```cv2.morphologyEx(....)``` by changing the number of iterations used both for morphological closing (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```) and dilation (see ```cv2.morphologyEx(..., cv2.MORPH_OPEN, ...)```). You can read more about morphological image operations [here](https://homepages.inf.ed.ac.uk/rbf/HIPR2/morops.htm).
 
 ###  Improving our Invisibility ....
 
@@ -139,7 +140,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **convex hull**: at the moment the cloaked region is often broken up by internal areas where the isolation of Hue colour is poor or where the chroma keying material is not fully covering the object. One way around this is to automatically extract the exterior contour around all of the _foreground mask_ pixels, and then fill this entire region with 255s to update the mask. In computationally geometry, we call this the convex hull of the set of pixels that make up the original _foreground mask_.
 
-- **feathered blending**: at the moment the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
+- **feathered blending**: at the moment, the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
 To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1). Again, you may need to resize the live image view window with the mouse ( + _you can also turn fullscreen on/off by pressing ```f```_)
 
@@ -160,13 +161,13 @@ To try this out:
 - run the code (click _"Run > Run Without Debugging"_)
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
 - try to get as much of the scene behind you covered by the (green) chroma keying material so that it provides you with a green backdrop.
--  _left click_ somewhere on your green backdrop it to select its Hue as before
+-  _left click_ somewhere on your green backdrop to select its Hue as before
 
 You should now see your own chroma keyed backdrop where the (green) chroma keying material has been replaced with the image of your choice.
 
 ### How does this work ?
 
-We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. In addition, we adapt the our earlier contour extraction approach to extrast the largest foreground object in the image. We then use this to update our _foreground mask_.
+We are basically inverting the concept of the invisibility mask such that we construct a _background mask_ from the (green) chroma keying material which is our image backdrop and then a _foreground mask_ as a bit-wise logical NOT operation. In addition, we adapt our earlier contour extraction approach to extract the largest foreground object in the image. We then use this to update our _foreground mask_.
 
 We then use these masks, again with the use of feathering for _alpha_-blending to produce a final output of the non-green foreground objects (e.g. people) composited against the background from the stored background image.
 
