@@ -11,10 +11,11 @@ This repository contains a set of computer science taster coding exercises for c
 Four quick steps to get you started:
 
 1. Ensure the computer is booted into Linux
-2.  Login with the provided username and password
-3.  Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
-4.  Within Visual Studio Code select menu item: File > New File
+2. Login with the provided username and password
+3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
+4. Within Visual Studio Code select menu item: File > New File
     * Choose _"Python"_ when you are prompted to select a language
+        - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
     * It will then say _"Do you want to install the recommended extensions for Python?"_
     * Click _"Install"_ and wait ~1 minute whilst everything is set up for you
 
@@ -24,7 +25,7 @@ Four quick steps to get you started:
 
 #### Supporting Materials
 
-_[ All supplied if you doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
+_[ All supplied if you are doing this as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/) ]_
 
 - a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
 - 1 x USB webcam (that works under Linux with the UVC driver)
@@ -81,7 +82,7 @@ The function ```cv2.cvtColor(image, cv2.COLOR_BGR2HSV)``` converts the image rep
 
 By specifying a tight range of Hue values, and a very wide range of Saturation and Value values, we can identify all regions that contain objects of a given colour in the image, regardless of lighting conditions. The print statement in the program will output the HSV values of the centre pixel of the image to the terminal.
 
-The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 75 and 100, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
+The variables ```lower_green``` and ```upper_green``` in the program are used to specify Hue between 55 and 95, which is roughly the green of the chroma keying material, and Saturation and Value values between 50 and 255 (i.e. ignore low intensity, poor brightness areas but keep everything else up to a strong and bright green colour).
 
 The function ```cv2.inRange(...)``` is used to create a mask - an image of 0s and 255s with 255s where the corresponding pixel was sufficiently green, and a 0 elsewhere. We then also create an opposite mask (```mask_inverted```), by swapping 0s and 255s. 0 and 255 are used, because when interpreted as a greyscale image, this gives a black and white (binary) mask. The masks are used to make two images - one where we convert the original image to greyscale, then do a bit-wise logical AND (```bitwise_and()```) with the inverted mask to keep only pixels that were not green, and another from a bit-wise logical AND of the original image and the mask to keep only the green pixels. Combining these gives an image where green parts are kept but everything else is greyscale.
 
