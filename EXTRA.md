@@ -1,6 +1,6 @@
 # Invisibility Cloaking via Real-time Object Detection in Video
 
-This extra tasks extends the _Harry Potter_ style **invisibility cloaking** to
+This extra tasks extends the special effect _wizard style_ **invisibility cloaking** to
 use real-time object detection and segmentation (specifically a neural network
 based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn/)**.)
 
