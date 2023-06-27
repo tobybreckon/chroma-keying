@@ -106,7 +106,7 @@ You may wish to look at the mouse callback function (see ```mouse_callback()``` 
 
 ![cloaking 1](img/cloaked-example-01.png)
 
-From all of the image processing functionality we have built up so far, we can now build _Harry Potter_ style invisibility cloaking in software using a technique known as [chroma keying]().
+From all of the image processing functionality we have built up so far, we can now build movie special effect style invisibility cloaking in software using a technique known as [chroma keying]().
 
 To try this out:
 - copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
