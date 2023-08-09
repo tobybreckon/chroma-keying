@@ -13,54 +13,72 @@ import numpy as np
 
 camera = cv2.VideoCapture(0)
 
-# read an image from the camera
+# define display window
 
-_, image = camera.read()
+window_name = "HSV - colour selected image"
+cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
-# convert the RGB images to HSV
+#####################################################################
 
-image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+keep_processing = True
 
-# print the HSV values of the middle pixel
+while (keep_processing):
 
-height, width, _ = image.shape
-print('Middle pixel HSV: ', image_hsv[int(height/2)][int(width/2)])
+    # read an image from the camera
 
-# define the range of hues to detect - adjust these to detect different colours
+    _, image = camera.read()
 
-lower_green = np.array([55, 50, 50])
-upper_green = np.array([95, 255, 255])
+    # convert the RGB images to HSV
 
-# create a mask that identifies the pixels in the range of hues
+    image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-mask = cv2.inRange(image_hsv, lower_green, upper_green)
-mask_inverted = cv2.bitwise_not(mask)
+    # print the HSV values of the middle pixel
 
-# create a grey image and black out the masked area
+    height, width, _ = image.shape
+    print('centre pixel HSV value: ', image_hsv[int(height/2)][int(width/2)])
+    print()
 
-image_grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-image_grey = cv2.bitwise_and(image_grey, image_grey, mask=mask_inverted)
+    # define the range of hues to detect - adjust these to detect different colours
 
-# black out unmasked area of original image
+    lower_green = np.array([55, 50, 50])
+    upper_green = np.array([95, 255, 255])
 
-image_masked = cv2.bitwise_and(image, image, mask=mask)
+    # create a mask that identifies the pixels in the range of hues
 
-# combine the two images for display
+    mask = cv2.inRange(image_hsv, lower_green, upper_green)
+    mask_inverted = cv2.bitwise_not(mask)
 
-image_grey = cv2.cvtColor(image_grey, cv2.COLOR_GRAY2BGR)
-image_combined = cv2.add(image_grey, image_masked)
+    # create a grey image and black out the masked area
 
-# display the image in the window
+    image_grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image_grey = cv2.bitwise_and(image_grey, image_grey, mask=mask_inverted)
 
-cv2.imshow("HSV - colour selected image", image_combined)
+    # black out unmasked area of original image
 
-# wait indefinitely for any key press to exist
+    image_masked = cv2.bitwise_and(image, image, mask=mask)
 
-cv2.waitKey(0)
+    # combine the two images for display
+
+    image_grey = cv2.cvtColor(image_grey, cv2.COLOR_GRAY2BGR)
+    image_combined = cv2.add(image_grey, image_masked)
+
+    # display image
+
+    cv2.imshow(window_name, image_combined)
+
+    # start the event loop - if user presses "x" then exit
+
+    # wait 40ms or less for a key press from the user
+    # (i.e. 1000ms / 25 fps = 40 ms)
+
+    key = cv2.waitKey(40) & 0xFF
+
+    if (key == ord('x')):
+        keep_processing = False
 
 #####################################################################
 
 # Author : Toby Breckon / Magnus Bordewich
-# Copyright (c) 2022 Dept Computer Science, Durham University, UK
+# Copyright (c) 2023 Dept Computer Science, Durham University, UK
 
 #####################################################################
