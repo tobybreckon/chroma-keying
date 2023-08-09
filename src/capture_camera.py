@@ -1,10 +1,11 @@
 #####################################################################
 
-# Task 1 : capture an image from an attached camera
+# Task 1 : capture live video from an attached camera
 
 #####################################################################
 
 import cv2
+import math
 
 #####################################################################
 
@@ -12,23 +13,34 @@ import cv2
 
 camera = cv2.VideoCapture(0)
 
-# read an image from the camera
+# define display window
 
-_, image = camera.read()
+window_name = "Live Camera Input"
+cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
 
-# perform any processing on the image here
-# by uncommenting (remove #) one or both of the following lines
+#####################################################################
 
-# cv2.flip(image,-1)
-# image = cv2.GaussianBlur(image,(5,5),0)
+keep_processing = True
 
-# display the image in the window
+while (keep_processing):
 
-cv2.imshow("Live Camera Input", image)
+    # read an image from the camera
 
-# wait indefinitely for any key press to exist
+    _, image = camera.read()
 
-cv2.waitKey(0)
+    # display image
+
+    cv2.imshow(window_name, image)
+
+    # start the event loop - if user presses "x" then exit
+
+    # wait 40ms or less for a key press from the user
+    # (i.e. 1000ms / 25 fps = 40 ms)
+
+    key = cv2.waitKey(40) & 0xFF
+
+    if (key == ord('x')):
+        keep_processing = False
 
 #####################################################################
 
