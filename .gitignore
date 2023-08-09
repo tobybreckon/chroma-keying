@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+mask_rcnn_inception_v2_coco_2018_01_28.pbtxt
+mask_rcnn_inception_v2_coco_2018_01_28/
+object_detection_classes_coco.txt
+background.jpg
