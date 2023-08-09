@@ -28,6 +28,10 @@ while (keep_processing):
 
     _, image = camera.read()
 
+    # optional flip (1 = left/right; 0 = top/bottom; -1 = both)
+
+    # image = cv2.flip(image, -1) 
+
     # display image
 
     cv2.imshow(window_name, image)
