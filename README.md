@@ -6,15 +6,16 @@ This repository contains a set of computer science taster coding exercises for c
 
 ## Getting Started
 
-![RGB Diagram](img/vs-code-python-setup.png)
-
 Four quick steps to get you started:
 
 1. Ensure the computer is booted into Linux
 2. Login with the provided username and password
 3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
+
+![RGB Diagram](img/vs-code-python-setup.png)
+
 4. Within Visual Studio Code select menu item: File > New Text File
-    * Click the blue _"Select a language"_ and start to type _python_, then select/click the _Python_ option that appears
+    * Click the blue _"Select a language"_ and start to type _python_, then select/click the _Python_ option that appears (as showb above)
         - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
     * It may then say _"Do you want to install the recommended extensions for Python?"_ (_from Marketplace_ or similar)
     * Select the first option from the list on the left. Click blue _"Install"_ text and wait ~1 minute whilst everything is set up for you
@@ -48,17 +49,19 @@ You should now see a live image from your webcam, _if not_ and you get an error,
 
 You may now also wish to try the following:
 
-- re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a correct orientation for your image, then try other numbers to see the effect.
-- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(5,5)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+- re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a diffent orientation for your image.
+- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(15,15)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [live_video.py](src/live_video.py?raw=1) which does image blurring on a live video image from the camera with graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
+**Advanced:** you may wish to try this example [blur_video.py](src/blur_video.py?raw=1) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before.  _[ you can exit the program by pressing ```x``` ]_
 
 By varying the filter sizes you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
 
 ## Task 2 - Identifying an Image Region by Hue
 
-Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but fairly robust method of identifying an object by colour. However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but not very robust method of identifying an object by colour. 
+
+However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
 
 ![RGB Diagram](img/RGB-HSV.png)
 
