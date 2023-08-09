@@ -13,11 +13,11 @@ Four quick steps to get you started:
 1. Ensure the computer is booted into Linux
 2. Login with the provided username and password
 3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
-4. Within Visual Studio Code select menu item: File > New File
-    * Choose _"Python"_ when you are prompted to select a language
+4. Within Visual Studio Code select menu item: File > New Text File
+    * Click the blue _"Select a language"_ and start to type _python_, then select/click the _Python_ option that appears
         - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
-    * It will then say _"Do you want to install the recommended extensions for Python?"_
-    * Click _"Install"_ and wait ~1 minute whilst everything is set up for you
+    * It may then say _"Do you want to install the recommended extensions for Python?"_ (_from Marketplace_ or similar)
+    * Select the first option from the list on the left. Click blue _"Install"_ text and wait ~1 minute whilst everything is set up for you
 
 ![RGB Diagram](img/vs-code-python-installed.png)
 
