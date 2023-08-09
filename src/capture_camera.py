@@ -29,7 +29,7 @@ while (keep_processing):
 
     # optional flip (1 = left/right; 0 = top/bottom; -1 = both)
 
-    # image = cv2.flip(image, -1) 
+    # image = cv2.flip(image, -1)
 
     # optional image blurring
 

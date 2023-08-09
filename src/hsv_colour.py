@@ -38,7 +38,8 @@ while (keep_processing):
     print('centre pixel HSV value: ', image_hsv[int(height/2)][int(width/2)])
     print()
 
-    # define the range of hues to detect - adjust these to detect different colours
+    # define the range of hues to detect
+    # - adjust these to detect different colours
 
     lower_green = np.array([55, 50, 50])
     upper_green = np.array([95, 255, 255])
