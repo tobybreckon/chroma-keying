@@ -5,7 +5,6 @@
 #####################################################################
 
 import cv2
-import math
 
 #####################################################################
 
@@ -31,6 +30,10 @@ while (keep_processing):
     # optional flip (1 = left/right; 0 = top/bottom; -1 = both)
 
     # image = cv2.flip(image, -1) 
+
+    # optional image blurring
+
+    # image = cv2.GaussianBlur(image, (15, 15), 0)
 
     # display image
 
