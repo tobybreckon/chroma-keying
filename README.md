@@ -38,7 +38,7 @@ Once you have completed the **Getting Started** steps:
 
 * copy and paste the code from this example [capture_camera.py](src/capture_camera.py?raw=1) into your Visual Studio Code window
 * save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
-    - if you are working on a shared account (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), first create a new directory (i.e. folder, using the folder+ icon on the left hand side, see below) using your name and save the file in there as ```main.py``` in that directory (i.e. ```yourfirstname-initial/main.py``` or similar) to avoid file conflicts with other users.
+    - if you are working on a shared account (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), first create a new directory (i.e. folder, using the folder+ icon on the right hand side, see below) using your name and save the file in there as ```main.py``` in that directory (i.e. ```yourfirstname-initial/main.py``` or similar) to avoid file conflicts with other users.
 
         ![VS code create directory](img/vs-code-create-directory.png)
 
