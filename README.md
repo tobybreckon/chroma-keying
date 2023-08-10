@@ -184,7 +184,7 @@ If you have finished all of this you may find the [Extra Task on Invisibility Us
 
 ## Additional Info
 
-**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux 15.x.
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x. (03/2022) on Durham University LDS (Debian Linux) + OpenSuSE Tumbleweed ([OpenCV](https://opencv.org) 4.5.x - 4.8.x). As an intro to the session, a suitable video to show the group and intro the use of chroma keying _"in the movies"_ is [https://www.youtube.com/watch?v=D3Cxm_HIiMU](https://www.youtube.com/watch?v=D3Cxm_HIiMU).
 
 **Developer Notes:** to add - additional versions with sliders controls for morphological operations, Hue range + any other parameters ; possible future enhancements - [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/).
 
