@@ -12,7 +12,7 @@ Four quick steps to get you started:
 2. Login with the provided username and password
 3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
 
-![RGB Diagram](img/vs-code-python-setup.png)
+![VS code python setup](img/vs-code-python-setup.png)
 
 4. Within Visual Studio Code select menu item: File > New Text File
     * Click the blue _"Select a language"_ and start to type _python_, then select/click the _Python_ option that appears (as shown above)
@@ -20,7 +20,7 @@ Four quick steps to get you started:
     * It may then say _"Do you want to install the recommended extensions for Python?"_ (_from Marketplace_ or similar)
     * Select the first option from the list on the left. Click blue _"Install"_ text and wait ~1 minute whilst everything is set up for you
 
-![RGB Diagram](img/vs-code-python-installed.png)
+![VS code install python](img/vs-code-python-installed.png)
 
 **You are now ready to start coding** - make sure you have all the supporting materials to hand, and go to **Task 1**
 
@@ -36,12 +36,16 @@ _[ All supplied if you are doing this as a visitor to [Computer Science at Durha
 
 Once you have completed the **Getting Started** steps:
 
-- copy and paste the code from this example [capture_camera.py](src/capture_camera.py?raw=1) into your Visual Studio Code window
-- save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
-- _[ make sure your usb webcam is connected to your PC ]_
-- click _"Run > Run Without Debugging"_
+* copy and paste the code from this example [capture_camera.py](src/capture_camera.py?raw=1) into your Visual Studio Code window
+* save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
+    - if you are working on a shared account (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), first create a new directory (i.e. folder, using the folder+ icon on the left hand side, see below) using your name and save the file in there as ```main.py``` in that directory (i.e. ```yourfirstname-initial/main.py``` or similar) to avoid file conflicts with other users.
 
-![RGB Diagram](img/vs-code-python-run.png)
+        ![VS code create directory](img/vs-code-create-directory.png)
+
+* _[ make sure your usb webcam is connected to your PC ]_
+* click _"Run > Run Without Debugging"_
+
+![VS code run python code](img/vs-code-python-run.png)
 
 - you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` ]_.
 
@@ -63,7 +67,7 @@ Computers normally store an image as a giant matrix with three values for each p
 
 However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
 
-![RGB Diagram](img/RGB-HSV.png)
+![RGB + HSV Diagram](img/RGB-HSV.png)
 
 - copy and paste the code from this example [hsv_colour.py](src/hsv_colour.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
