@@ -10,34 +10,46 @@ based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn
 Some quick steps to get you setup for object detection:
 
 1. In the browser, download and save file the code file [invisible_objects.py](src/invisible_objects.py?raw=1) (left click mouse, __"Save Page As ..."__).
-![Download Task 5](img/download-task5.png)
+    
+    _If you are working on a shared account_ (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), save this in the directory you created earlier (i.e. ```yourfirstname-initial/invisible_objects.py``` or similar) to avoid file conflicts with other users.
 
-2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__).
-![Download script](img/download-model-script.png)
+    ![Download Task 5](img/download-task5.png)
+
+
+2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__) to the same directory you used in Step (1):
+
+    ![Download script](img/download-model-script.png)
 
 3. Open a command line Terminal as follows:
-![Open Terminal](img/open-terminal.png)
+
+    ![Open Terminal](img/open-terminal.png)
+
+    _Only if_ you saved the files to a directory you created earlier, first enter the following command to change to this directory (replacing ``yourfirstname-initial`` with your file name):
+    ```
+    cd yourfirstname-initial
+    ```
 
 
-... and then enter the following command to download the pre-trained object detection models we are going to use:
-```
-bash ./download-model.sh
-```
+    ... and then enter the following command to download the pre-trained object detection models we are going to use:
+    ```
+    bash ./download-model.sh
+    ```
 
-After the downloads complete, should now see some final output in the Terminal as follows:
-```
-....
-Performing MD5 file verification checks ...
-object_detection_classes_coco.txt: OK
-mask_rcnn_inception_v2_coco_2018_01_28.pbtxt: OK
-mask_rcnn_inception_v2_coco_2018_01_28/frozen_inference_graph.pb: OK
+    After the downloads complete, should now see some final output in the Terminal as follows:
+    ```
+    ....
+    Performing MD5 file verification checks ...
+    object_detection_classes_coco.txt: OK
+    mask_rcnn_inception_v2_coco_2018_01_28.pbtxt: OK
+    mask_rcnn_inception_v2_coco_2018_01_28/frozen_inference_graph.pb: OK
 
-```
-which this means the download was successful and the files verified (using a mathematical checksum) correctly.
+    ```
+    which this means the download was successful and the files verified (using a mathematical checksum) correctly.
 
 
 4.  Finally, open the file [invisible_objects.py](src/invisible_objects.py?raw=1) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
-![Open File](img/open-file.png)
+
+    ![Open File](img/open-file.png)
 
 ## Task 5 - Invisibility Cloaking via Object Detection
 
@@ -61,6 +73,7 @@ However, **you may notice the program is running very slowly and sluggishly**. T
 ![run opencv.init](img/run-opencv-init.png)
 
 On the Durham Linux system, this re-initialises the Python software environment to use the **GPU** (i.e. OpenCV with CUDA enabled). You should now get a high refresh rate and be able to re-run the code file, reset the background (_pressing the space key_ ) and toggle invisibility on/off with ease (_pressing the i key_) to see things like this:
+
 ![object cloaking](img/mask-r-cnn-cloaking-02.png)
 
 If the object invisibility masking is not perfect, this is due to the simplicity of the Mask R-CNN object masks - you could try fixing this by increasing the number of morphological operations used to clean up the foreground mask in the code (hint: see code lines 161 - 168).
