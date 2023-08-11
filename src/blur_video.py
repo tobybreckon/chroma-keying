@@ -1,6 +1,6 @@
 #####################################################################
 
-# Task 1 : capture live video from an attached camera
+# Task 1 : capture and blur live video from an attached camera
 
 #####################################################################
 
