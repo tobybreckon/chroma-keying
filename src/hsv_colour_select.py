@@ -55,8 +55,8 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
-
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
+1
 # define display window
 
 window_name = "Live Camera Input with Selected Hue Region"

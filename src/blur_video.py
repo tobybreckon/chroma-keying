@@ -21,7 +21,7 @@ def nothing(x):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 
 # define display window
 
