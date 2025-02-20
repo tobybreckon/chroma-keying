@@ -47,7 +47,7 @@ Once you have completed the **Getting Started** steps:
 
 ![VS code run python code](img/vs-code-python-run.png)
 
-- you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` or ```ESC``` or ```ESC```]_.
+- you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` or ```ESC```]_.
 
 You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
