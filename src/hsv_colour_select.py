@@ -60,7 +60,7 @@ camera = cv2.VideoCapture(1, cv2.CAP_V4L)
 # define display window
 
 window_name = "Live Camera Input with Selected Hue Region"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 # set the mouse call back function that will be called every time
 # the mouse is clicked inside the display window

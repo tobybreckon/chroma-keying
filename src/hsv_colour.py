@@ -16,7 +16,7 @@ camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 # define display window
 
 window_name = "HSV - colour selected image"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 #####################################################################
 
