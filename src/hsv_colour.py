@@ -90,6 +90,6 @@ while (keep_processing):
 #####################################################################
 
 # Author : Toby Breckon / Magnus Bordewich
-# Copyright (c) 2023 Dept Computer Science, Durham University, UK
+# Copyright (c) 2023-25 Dept Computer Science, Durham University, UK
 
 #####################################################################
