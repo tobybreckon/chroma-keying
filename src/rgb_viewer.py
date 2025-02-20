@@ -66,6 +66,6 @@ while (keep_processing):
 #####################################################################
 
 # Author : Toby Breckon, toby.breckon@durham.ac.uk
-# Copyright (c) 2022 Dept Computer Science, Durham University, UK
+# Copyright  Dept Computer Science, Durham University, UK
 
 #####################################################################

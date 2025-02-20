@@ -153,6 +153,6 @@ while (keep_processing):
 #####################################################################
 
 # Author : Toby Breckon
-# Copyright (c) 2022 Dept Computer Science, Durham University, UK
+# Copyright (c) 2022-25 Dept Computer Science, Durham University, UK
 
 #####################################################################
