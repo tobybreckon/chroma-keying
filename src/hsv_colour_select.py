@@ -55,7 +55,7 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0, cv2.CAP_V4L)
+camera = cv2.VideoCapture(1, cv2.CAP_V4L)
 1
 # define display window
 
@@ -104,12 +104,12 @@ while (keep_processing):
 
     cv2.imshow(window_name, image_combined)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
     # wait 40ms for a key press from the user (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(40) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
 
     # - if user presses "f" then switch to fullscreen

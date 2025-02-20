@@ -97,14 +97,14 @@ while (keep_processing):
 
     cv2.imshow(window_name, smoothed_image)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
 
     # wait 40ms or less for a key press from the user
     # depending on processing time taken (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(max(2, 40 - int(math.ceil(stop_t)))) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
 
     # - if user presses "f" then switch to fullscreen

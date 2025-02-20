@@ -45,12 +45,12 @@ while (keep_processing):
 
     cv2.imshow(window_name, channels)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
     # wait 40ms for a key press from the user (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(40) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
 
     # - if user presses "f" then switch to fullscreen

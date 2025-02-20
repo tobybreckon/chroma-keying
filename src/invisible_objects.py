@@ -216,12 +216,12 @@ while (keep_processing):
 
         cv2.imshow(window_name, image)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
     # wait just 2ms for a key press (as processsing here is slower)
 
     key = cv2.waitKey(2) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
 
     # - if user presses 'i' then turn on/off invisibility
