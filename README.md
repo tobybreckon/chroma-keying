@@ -47,7 +47,7 @@ Once you have completed the **Getting Started** steps:
 
 ![VS code run python code](img/vs-code-python-run.png)
 
-- you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` ]_.
+- you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` or ```ESC``` or ```ESC```]_.
 
 You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
 
@@ -56,7 +56,7 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a diffent orientation for your image.
 - adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(15,15)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [blur_video.py](src/blur_video.py?raw=1) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before -  _[ you can exit the program by pressing ```x``` ]_
+**Advanced:** you may wish to try this example [blur_video.py](src/blur_video.py?raw=1) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before -  _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
 By varying the filter sizes you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
@@ -103,7 +103,7 @@ To try this out:
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should initially see a live colour image from the camera; _left click_ on any object to select its Hue
 - you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma keying material)
-- _[ you can exit the program by pressing ```x``` ]_
+- _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
@@ -121,7 +121,7 @@ To try this out:
 - _[ a window of the current background image captured by the code should be displayed in one window, and the live image view in another ]_
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
 - bring the (green) chroma keying material into view and _left click_ on it to select its Hue as before
-- _[ you can exit the program by pressing ```x``` ]_
+- _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
 You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
 
