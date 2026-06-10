@@ -36,7 +36,7 @@ _[ All supplied if you are doing this as a visitor to [Computer Science at Durha
 
 Once you have completed the **Getting Started** steps:
 
-* copy and paste the code from this example [capture_camera.py](src/capture_camera.py?raw=1) into your Visual Studio Code window
+* copy and paste the code from this example [capture_camera.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/capture_camera.py) into your Visual Studio Code window
 * save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
     - if you are working on a shared account (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), first create a new directory (i.e. folder, using the folder+ icon on the right hand side, see below) using your name and save the file in there as ```main.py``` in that directory (i.e. ```yourfirstname-initial/main.py``` or similar) to avoid file conflicts with other users.
 
@@ -56,7 +56,7 @@ You may now also wish to try the following:
 - re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a diffent orientation for your image.
 - adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(15,15)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
-**Advanced:** you may wish to try this example [blur_video.py](src/blur_video.py?raw=1) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before -  _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
+**Advanced:** you may wish to try this example [blur_video.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/blur_video.py) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before -  _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
 By varying the filter sizes you can also observe the impact on the processing time required to blur the image in the test in the top left of the image display (_more blurring => more computation required => more time required to process each image => slower processing_). You may wish to also add in the earlier image flipping ```cv2.flip(....)``` or other [filtering effects from the OpenCV library](https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html).
 
@@ -69,7 +69,7 @@ However, you may want to specify the colour in a way that isn't affected by how 
 
 ![RGB + HSV Diagram](img/RGB-HSV.png)
 
-- copy and paste the code from this example [hsv_colour.py](src/hsv_colour.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [hsv_colour.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should see a grey image displayed but with the green material colour retained (in green), as per the example below
 - _[ you can exit the program by pressing 'x' ]_
@@ -99,7 +99,7 @@ In order to make this approach easier to use we can add a point and click colour
 
 To try this out:
 
-- copy and paste the code from this example [hsv_colour_select.py](src/hsv_colour_select.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [hsv_colour_select.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/hsv_colour_select.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
 - you should initially see a live colour image from the camera; _left click_ on any object to select its Hue
 - you should now see a grey image displayed but with the Hue colour that you selected retained (for example just the green of the chroma keying material)
@@ -107,7 +107,7 @@ To try this out:
 
 You may wish to look at the mouse callback function (see ```mouse_callback()``` in the code), and uncomment the functionality for resetting the HSV ranges on right mouse click.
 
-**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](src/rgb_viewer.py?raw=1) and [hsv_viewer.py](src/hsv_viewer.py?raw=1) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding colour channels of the RGB channels (yet appear in all 3), and similarly vibrant colours have strong responses in the Hue and Saturation channels of HSV.
+**Advanced:** If you want to understand more about how images are constructed using RGB or HSV colour representations you may find these corresponding [rgb_viewer.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/rgb_viewer.py) and [hsv_viewer.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/hsv_viewer.py) interesting. Run them as before through Visual Studio Code, with the webcam attached. You can note how objects of certain colours (e.g. green) appear brighter in the corresponding colour channels of the RGB channels (yet appear in all 3), and similarly vibrant colours have strong responses in the Hue and Saturation channels of HSV.
 
 ## Task 3 - Building an Invisibility Cloak
 
@@ -116,7 +116,7 @@ You may wish to look at the mouse callback function (see ```mouse_callback()``` 
 From all of the image processing functionality we have built up so far, we can now build movie special effect style invisibility cloaking in software using a technique known as [chroma keying]().
 
 To try this out:
-- copy and paste the code from this example [invisibility_cloak.py](src/invisibility_cloak.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [invisibility_cloak.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisibility_cloak.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - point your webcam to a clear(ish) area of the room with no people or (green) chroma keying material in view; and run the code (click _"Run > Run Without Debugging"_)
 - _[ a window of the current background image captured by the code should be displayed in one window, and the live image view in another ]_
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
@@ -149,7 +149,7 @@ In order to improve our cloaking approach, we are now going to introduce a coupl
 
 - **feathered blending**: at the moment, the use of logical OR to combine our cloaked foreground region into our live camera image results in a range of edge artefacts. A better way to do this is to take the previous _foreground mask_ and slightly blur it so as to create _feathered_ edges. We can then numerically invert this _feathered foreground mask_ to provide a _feathered background mask_ . These feathered masks provide _alpha_-weights to allow us to combine the image regions via a weighted summation to give the final output via a computer graphics technique known as _alpha_-blending.
 
-To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](src/invisibility_cloak_improved.py?raw=1). Again, you may need to resize the live image view window with the mouse ( + _you can also turn fullscreen on/off by pressing ```f```_)
+To try out these improvements, try the following code example as before - [invisibility_cloak_improved.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisibility_cloak_improved.py). Again, you may need to resize the live image view window with the mouse ( + _you can also turn fullscreen on/off by pressing ```f```_)
 
 
 Again as **arithmetic operations** such as addition, subtraction and multiplication be performed on large matrices of binary data, such as images, at high-speed by a modern CPU we can obtain real-time image cloaking.
@@ -163,7 +163,7 @@ To explore how these improvements work, edit the code to display the _foreground
 In this final part of the exercise, we invert the idea behind the invisibility cloak to provide ourselves with a virtual background in the same way that chroma keying is used as a special effect in the film industry (or today how some of the background changing features in video conferencing tools such as Zoom and MS Teams work).
 
 To try this out:
-- copy and paste the code from this example [chroma_keying_background.py](src/chroma_keying.py?raw=1) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+- copy and paste the code from this example [chroma_keying_background.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/chroma_keying.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
 - download a suitable background image from somewhere (e.g. free images from [unsplash](https://unsplash.com/backgrounds/desktop/computer) or perhaps of [Durham Cathedral](https://www.thisisdurham.com/dbimgs/durham-cathedral-background.jpg)) and save it as background.jpg (in the home directory, or wherever your _main.py_ is located)
 - run the code (click _"Run > Run Without Debugging"_)
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
@@ -186,7 +186,7 @@ If you have finished all of this you may find the [Extra Task on Invisibility Us
 
 **Use on other Operating Systems:** As of [this code commit](https://github.com/tobybreckon/chroma-keying/commit/5694a114d4dbad31eccf79917a803fa9ddc6d8f8) the examples here are now essentially Linux specific as we are forcing the code to use the Video4Linux (```V4L```) backend for camera access in order to get fast and direct access to the camera hardware. To make this work on other operating systems you may need to change the lines with the reference ```cv2.VideoCapture(0, cv2.CAP_V4L)``` to ```cv2.VideoCapture(0, cv2.CAP_ANY)```. You may also need to change the index of your camera in the same lines of code depending on your setup.
 
-**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x-4.10.x (02/2025) on Durham University LDS (Debian Linux) + OpenSuSE Tumbleweed ([OpenCV](https://opencv.org) 4.5.x - 4.12.x). As an intro to the session, a suitable video to show the group and intro the use of chroma keying _"in the movies"_ is [https://www.youtube.com/watch?v=D3Cxm_HIiMU](https://www.youtube.com/watch?v=D3Cxm_HIiMU) (with sound off). At the end of the session it may be useful to display the following QR code of the URL for this github repo so that students can read/continue at home - [QR Code](img/url-qr-code.png?raw=1).
+**Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.5.x-4.10.x (02/2025) on Durham University LDS (Debian Linux) + OpenSuSE Tumbleweed ([OpenCV](https://opencv.org) 4.5.x - 4.12.x). As an intro to the session, a suitable video to show the group and intro the use of chroma keying _"in the movies"_ is [https://www.youtube.com/watch?v=D3Cxm_HIiMU](https://www.youtube.com/watch?v=D3Cxm_HIiMU) (with sound off). At the end of the session it may be useful to display the following QR code of the URL for this github repo so that students can read/continue at home - [QR Code](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/img/url-qr-code.png).
 
 **Developer Notes:** to add - additional versions with sliders controls for morphological operations, Hue range + any other parameters ; possible future enhancements - [multi-band blending](https://github.com/mtnzmz/MultiBandBlender-python), [exposure compensation](https://docs.opencv.org/4.x/d2/d37/classcv_1_1detail_1_1ExposureCompensator.html), [poisson image editing](https://learnopencv.com/seamless-cloning-using-opencv-python-cpp/). 
 
