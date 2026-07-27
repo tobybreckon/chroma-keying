@@ -87,14 +87,14 @@ By training this neural network model, using 1000s and 1000s of labelled image e
 
 If you want to see all the different types of objects that the model we are using is trained to on, open the file ``object_detection_classes_coco.txt`` in Visual Studio Code.
 
-The current version code file we are using ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the this [mask-rcnn.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/mask-rcnn.py) code file.
-_(N.B. to get it to run on the GPU by default edit line: 68 + to make it run even more efficiently additionally download the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/camera_stream.py) threaded camera capture module.)_
+The current version code file we are using ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the this [mask-rcnn.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/master/mask-rcnn.py) code file.
+_(N.B. to get it to run on the GPU by default edit line: 68 + to make it run even more efficiently additionally download the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/master/camera_stream.py) threaded camera capture module.)_
 
 ![full Mask R-CNN](img/mask-r-cnn-full.png)
 
 ### Some other things to try ...
 
-If time allows you may want to try editing the ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py)) code file to play with the following features:
+If time allows you may want to try editing the ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/main/src/invisible_objects.py)) code file to play with the following features:
 - changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
 - selectively making only certain objects invisible (hint: see code lines 138-142)
 - adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](
