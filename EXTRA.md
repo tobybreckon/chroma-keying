@@ -9,14 +9,14 @@ based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn
 
 Some quick steps to get you setup for object detection:
 
-1. In the browser, download and save file the code file [invisible_objects.py](src/invisible_objects.py?raw=1) (left click mouse, __"Save Page As ..."__).
+1. In the browser, download and save file the code file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py) (left click mouse, __"Save Page As ..."__).
     
     _If you are working on a shared account_ (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), save this in the directory you created earlier (i.e. ```yourfirstname-initial/invisible_objects.py``` or similar) to avoid file conflicts with other users.
 
     ![Download Task 5](img/download-task5.png)
 
 
-2. In the browser, download and save the file script file [download-model.sh](src/download-model.sh?raw=1) (left click mouse, __"Save Page As ..."__) to the same directory you used in Step (1):
+2. In the browser, download and save the file script file [download-model.sh](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/download-model.sh) (left click mouse, __"Save Page As ..."__) to the same directory you used in Step (1):
 
     ![Download script](img/download-model-script.png)
 
@@ -47,7 +47,7 @@ Some quick steps to get you setup for object detection:
     which this means the download was successful and the files verified (using a mathematical checksum) correctly.
 
 
-4.  Finally, open the file [invisible_objects.py](src/invisible_objects.py?raw=1) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
+4.  Finally, open the file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/src/invisible_objects.py) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
 
     ![Open File](img/open-file.png)
 
@@ -60,7 +60,7 @@ In this extra exercise, we make use of a **deep machine learning** based object 
 Here we make use of a pre-trained model to be able to detect object masks within the image. We can then use these R-CNN generated object masks as the _foreground mask_ for our invisibility cloaking approach in place of using the green material.
 
 To try this out:
-- run the downloaded code file [invisible_objects.py](src/invisible_objects.py?raw=1) in Visual Studio Code
+- run the downloaded code file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py) in Visual Studio Code
 (click _"Run > Run Without Debugging"_)
 - you should now see 2 image windows displayed - one containing an initial background image, and one containing the mask output of the Mask R-CNN model (with each type of object over-shaded with a different colour)
 - you may need to resize the live image view window with the mouse ( _you can also turn fullscreen on/off by pressing ```f```_)
@@ -87,22 +87,23 @@ By training this neural network model, using 1000s and 1000s of labelled image e
 
 If you want to see all the different types of objects that the model we are using is trained to on, open the file ``object_detection_classes_coco.txt`` in Visual Studio Code.
 
-The current version code file we are using ([invisible_objects.py](src/invisible_objects.py?raw=1)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the this [mask-rcnn.py](https://github.com/tobybreckon/python-examples-cv/blob/master/mask-rcnn.py?raw=1) code file.
-_(N.B. to get it to run on the GPU by default edit line: 68 + to make it run even more efficiently additionally download the [camera_steam.py](https://github.com/tobybreckon/python-examples-cv/blob/master/camera_stream.py?raw=1) threaded camera capture module.)_
+The current version code file we are using ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py)) is setup just to display the object masks so that we can use them for our invisibility task. If you want to see the complete set of object masks, bounding boxes, labsls and confidence levels for all objects download and run the this [mask-rcnn.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/mask-rcnn.py) code file.
+_(N.B. to get it to run on the GPU by default edit line: 68 + to make it run even more efficiently additionally download the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/camera_stream.py) threaded camera capture module.)_
 
 ![full Mask R-CNN](img/mask-r-cnn-full.png)
 
 ### Some other things to try ...
 
-If time allows you may want to try editing the ([invisible_objects.py](src/invisible_objects.py?raw=1)) code file to play with the following features:
+If time allows you may want to try editing the ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/src/invisible_objects.py)) code file to play with the following features:
 - changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
 - selectively making only certain objects invisible (hint: see code lines 138-142)
-- adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](https://github.com/tobybreckon/python-examples-cv/blob/master/gaussian.py?raw=1))
+- adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](
+    https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/gaussian.py))
 
 ## Additional Info
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.6.x. (08/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux Tumbleweed. The use of the ``opencv.init`` command to activate a version of OpenCV built against CUDA is specific to the setup on the DU LDS system; the general alternative is to built OpenCV from source with ``WITH_CUDA`` and ``OPENCV_DNN_CUDA`` enabled - for any configuration this can be tested via this [version.py](https://github.com/tobybreckon/python-examples-ip/blob/master/version.py) script.
 
-**Developer Notes:** to add - additional versions with sliders controls for object confidence; if using this code in anger beyond a beginner level lab demo - consider using the [camera_steam.py](https://github.com/tobybreckon/python-examples-cv/blob/master/camera_stream.py?raw=1) module for threaded camera capture.
+**Developer Notes:** to add - additional versions with sliders controls for object confidence; if using this code in anger beyond a beginner level lab demo - consider using the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/camera_stream.py) module for threaded camera capture.
 
 **Acknowledgements:** based in part on a prior code example from the [OpenCV Library](https://github.com/opencv/opencv/blob/master/samples/dnn/mask_rcnn.py).
