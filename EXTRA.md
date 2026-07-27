@@ -47,7 +47,7 @@ Some quick steps to get you setup for object detection:
     which this means the download was successful and the files verified (using a mathematical checksum) correctly.
 
 
-4.  Finally, open the file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/src/invisible_objects.py) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
+4.  Finally, open the file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py) that you downloaded in Visual Studio Code (File menu -> Open File) as follows:
 
     ![Open File](img/open-file.png)
 
@@ -94,7 +94,7 @@ _(N.B. to get it to run on the GPU by default edit line: 68 + to make it run eve
 
 ### Some other things to try ...
 
-If time allows you may want to try editing the ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/src/invisible_objects.py)) code file to play with the following features:
+If time allows you may want to try editing the ([invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py)) code file to play with the following features:
 - changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
 - selectively making only certain objects invisible (hint: see code lines 138-142)
 - adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](
