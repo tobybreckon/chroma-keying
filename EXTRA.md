@@ -98,12 +98,12 @@ If time allows you may want to try editing the ([invisible_objects.py](https://r
 - changing the confidence threshold for object detection (_What is the effect?_ - hint: see code line 116)
 - selectively making only certain objects invisible (hint: see code lines 138-142)
 - adding a timing loop to compare CPU vs. GPU execution times (hint: see simple example [here](
-    https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/gaussian.py))
+    https://raw.githubusercontent.com/tobybreckon/python-examples-cv/master/gaussian.py))
 
 ## Additional Info
 
 **Instructor Notes:** tested with [OpenCV](https://opencv.org) 4.6.x. (08/2022) on Durham University LDS (Debian Linux) + OpenSuSE Linux Tumbleweed. The use of the ``opencv.init`` command to activate a version of OpenCV built against CUDA is specific to the setup on the DU LDS system; the general alternative is to built OpenCV from source with ``WITH_CUDA`` and ``OPENCV_DNN_CUDA`` enabled - for any configuration this can be tested via this [version.py](https://github.com/tobybreckon/python-examples-ip/blob/master/version.py) script.
 
-**Developer Notes:** to add - additional versions with sliders controls for object confidence; if using this code in anger beyond a beginner level lab demo - consider using the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/refs/head/master/camera_stream.py) module for threaded camera capture.
+**Developer Notes:** to add - additional versions with sliders controls for object confidence; if using this code in anger beyond a beginner level lab demo - consider using the [camera_steam.py](https://raw.githubusercontent.com/tobybreckon/python-examples-cv/master/camera_stream.py) module for threaded camera capture.
 
 **Acknowledgements:** based in part on a prior code example from the [OpenCV Library](https://github.com/opencv/opencv/blob/master/samples/dnn/mask_rcnn.py).
