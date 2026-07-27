@@ -8,15 +8,25 @@ This repository contains a set of computer science taster coding exercises for c
 
 Four quick steps to get you started:
 
-1. Ensure the computer is booted into Linux
-2. Login with the provided username and password
-3. Start Visual Studio Code (Menu: Applications > Programming > Visual Studio Code)
+1. Ensure the computer is **booted into Linux**
 
-![VS code python setup](img/vs-code-python-setup.png)
+2. **Login** with the provided username and password 
 
-4. Within Visual Studio Code select menu item: File > New Text File
+3. Start **Visual Studio Code** (**Top  Right Menu**: Applications > Programming > Visual Studio Code)
+
+   ![Start VS Code](img/vs-code-launch.png)
+
+[_Click **"skip" to anything about logging into GitHub**_]
+
+5. Within **Visual Studio Code** select menu item: **File  > New Text File**
+
+    ![VS code install python](img/vs-code-new-file.png)
+
     * Click the blue _"Select a language"_ and start to type _python_, then select/click the _Python_ option that appears (as shown above)
         - If _"Python"_ is not offered as a choice, press **Ctrl+Shift+X** and then search for _"Python"_ and press install
+
+    ![VS code python setup](img/vs-code-python-setup.png)
+
     * It may then say _"Do you want to install the recommended extensions for Python?"_ (_from Marketplace_ or similar)
     * Select the first option from the list on the left. Click blue _"Install"_ text and wait ~1 minute whilst everything is set up for you
 
@@ -30,31 +40,33 @@ _[ All supplied if you are doing this as a visitor to [Computer Science at Durha
 
 - a Linux PC with [OpenCV](https://www.opencv.org) and [Visual Studio Code](https://code.visualstudio.com/) installed
 - 1 x USB webcam (that works under Linux with the UVC driver)
-- 1 x green covered chroma keying material
+- 1 x (bright!) green chroma keying material
 
 ## Task 1 - Capture a Live Camera Image
 
 Once you have completed the **Getting Started** steps:
 
-* copy and paste the code from this example [capture_camera.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/capture_camera.py) into your Visual Studio Code window
-* save this file as ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
+* **copy and paste the code from this example**[capture_camera.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/capture_camera.py) into your Visual Studio Code window
+* **save this file as** ```main.py``` by selecting menu item: File > Save As... (then entering filename as ```main.py```)
     - if you are working on a shared account (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), first create a new directory (i.e. folder, using the folder+ icon on the right hand side, see below) using your name and save the file in there as ```main.py``` in that directory (i.e. ```yourfirstname-initial/main.py``` or similar) to avoid file conflicts with other users.
 
-        ![VS code create directory](img/vs-code-create-directory.png)
+    ![VS code save as python](img/vs-code-python-save-as.png)
+
 
 * _[ make sure your usb webcam is connected to your PC ]_
-* click _"Run > Run Without Debugging"_
 
-![VS code run python code](img/vs-code-python-run.png)
+* click _"Run > Run Without Debugging"_ (select _"Python Debugger"_ if prompted)
 
-- you should see a window with an image captured from the camera displayed - _[ you can exit the program by pressing ```x``` or ```ESC```]_.
+    ![VS code run python code](img/vs-code-python-run.png)
 
-You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times and re-run the program (last step above).
+- you should see a window with **an image captured from the camera displayed** - _[ you can exit the program by pressing ```x``` or ```ESC```]_.
+
+You should now see a live image from your webcam, _if not_ and you get an error, try plugging/re-plugging the USB webcam a couple of times (or choose a different USB port) and re-run the program (last step above).
 
 You may now also wish to try the following:
 
-- re-orienting the image if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a diffent orientation for your image.
-- adding blurring to the image to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(15,15)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
+- **re-orienting the image** if it is upside down or back to front (left-right): find the function ```cv2.flip(image,-1)``` in the code and uncomment it. The number in the brackets controls what sort of flip is done. Try changing it to 0 or 1, to get a diffent orientation for your image.
+- **adding blurring to the image** to remove image noise: find the line containing ```cv2.GaussianBlur(...)``` in the code and uncomment it. The specified filter sizes, _(15,15)_, which are known as parameters to the blurring function control how much blurring is performed in each of the horizontal (_x_-axis) and vertical (_y_-axis) directions in the image: you can try varying them for differing effects and re-running your code but the parameters you use must be _positive, odd_ numbers.
 
 **Advanced:** you may wish to try this example [blur_video.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/blur_video.py) which also has graphical user interface (GUI) sliders to control the blurring on the live image. To try it, copy and paste it over your earlier code in the Visual Studio Code window, save it (File > Save), and then run it (click _"Run > Run Without Debugging"_) as before -  _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
@@ -65,13 +77,16 @@ By varying the filter sizes you can also observe the impact on the processing ti
 
 Computers normally store an image as a giant matrix with three values for each pixel: the intensity of Red, Green and Blue (RGB values) that combine to make the colour of a pixel. RGB values are a simple but not very robust method of identifying an object by colour. 
 
-However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV) representation (diagram below, right).
+However, you may want to specify the colour in a way that isn't affected by how light or dark the lighting on an object is, or how washed out or exposed the image is. This can be tricky when specifying ranges of RGB values in order to identify image regions (diagram below, left). However, it can be done by looking at the **Hue (primary colour/wavelength) of the object by transforming the RGB image to a Hue, Saturation and Value (HSV)** representation (diagram below, right).
 
 ![RGB + HSV Diagram](img/RGB-HSV.png)
 
-- copy and paste the code from this example [hsv_colour.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
-- hold up the (green) chroma keying material and run it (click _"Run > Run Without Debugging"_)
-- you should see a grey image displayed but with the green material colour retained (in green), as per the example below
+- **copy and paste the code from this example** [hsv_colour.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/hsv_colour.py) into your Visual Studio Code window (replacing all earlier code) again save (File > Save)
+
+- **hold up the (green) chroma keying material** and run it (click _"Run > Run Without Debugging"_)
+
+- you **should see a grey image displayed but with the green material colour retained** (in green), as per the example below
+
 - _[ you can exit the program by pressing 'x' ]_
 
 ![HSV selected region](img/hsv-selected-colour-01.png)
