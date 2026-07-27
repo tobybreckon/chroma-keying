@@ -148,11 +148,9 @@ To try this out:
 
 - _[ you can exit the program by pressing ```x``` or ```ESC``` ]_
 
-You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image.
+You should now see objects that are covered by the chroma keying material are cloaked using information background from the captured scene background image. **You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection**
 
 ![cloaking 1](img/cloaked-example-02.png)
-
-**You can reset the background image by _pressing the space key_; you can _right click_ to reset the Hue selection**
 
 ### How does this work ?
 
