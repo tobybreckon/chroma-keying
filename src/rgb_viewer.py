@@ -32,7 +32,7 @@ while (keep_processing):
         print('ERROR: no image from camera.')
         continue
 
-    # construct RGB channel views (N.B. OpenCV is BGR, not RGB channel ordering)
+    # construct RGB channel views (N.B. OpenCV is BGR, not RGB channel)
     # channel 0 = blue, channel 1 = green, channel 2 = red
 
     blue = np.zeros(image.shape, dtype=np.uint8)
