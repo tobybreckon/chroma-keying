@@ -1,6 +1,6 @@
 #####################################################################
 
-# Task 3 : display live video from an attached camera as RGB channels
+# Task 2 : display live video from an attached camera as RGB channels
 
 #####################################################################
 
@@ -26,18 +26,25 @@ while (keep_processing):
 
     # read an image from the camera
 
-    _, image = camera.read()
+    ret, image = camera.read()
+    if (ret == 0):
+        keep_processing = False
+        print('ERROR: no image from camera.')
+        continue
 
-    # construct RGB channel view (N.B. OpenCV is BGR, not RGB channel ordering)
+    # construct RGB channel views (N.B. OpenCV is BGR, not RGB channel)
+    # channel 0 = blue, channel 1 = green, channel 2 = red
 
-    red = np.zeros(image.shape, dtype=np.uint8)
-    red[:, :, 2] = image[:, :, 2]
+    blue = np.zeros(image.shape, dtype=np.uint8)
+    blue[:, :, 0] = image[:, :, 0]
 
     green = np.zeros(image.shape, dtype=np.uint8)
     green[:, :, 1] = image[:, :, 1]
 
-    blue = np.zeros(image.shape, dtype=np.uint8)
-    blue[:, :, 0] = image[:, :, 0]
+    red = np.zeros(image.shape, dtype=np.uint8)
+    red[:, :, 2] = image[:, :, 2]
+
+    # reconsruct as single side-by-side [red | green | blue] image for display
 
     channels = np.hstack((np.hstack((red, green)), blue))
 
@@ -66,6 +73,6 @@ while (keep_processing):
 #####################################################################
 
 # Author : Toby Breckon
-# Copyright (c) 2022-25 Dept Computer Science, Durham University, UK
+# Copyright (c) 2022-26 Dept Computer Science, Durham University, UK
 
 #####################################################################

@@ -1,6 +1,6 @@
 #####################################################################
 
-# Task 3 : display live video from an attached camera as HSV channels
+# Task 2 : display live video from an attached camera as HSV channels
 
 #####################################################################
 
@@ -17,6 +17,7 @@ camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 
 window_name = "Live Camera Input - HSV Channels (left to right - H | S | V)"
 cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+# edit out as this is host specific, not the user specific
 
 #####################################################################
 
@@ -36,7 +37,7 @@ while (keep_processing):
     hue[:, :, 0] = np.uint8(image_hsv[:, :, 0])
     hue[:, :, 1] = np.ones(image_hsv[:, :, 1].shape) * 255
     hue[:, :, 2] = np.ones(image_hsv[:, :, 2].shape) * 255
-    colour_mapped_hue = cv2.cvtColor(hue, cv2.COLOR_HSV2RGB)  # RGB better
+    colour_mapped_hue = cv2.cvtColor(hue, cv2.COLOR_HSV2BGR)  # RGB better
 
     saturation = cv2.cvtColor(image_hsv[:, :, 1], cv2.COLOR_GRAY2BGR)
     value = cv2.cvtColor(image_hsv[:, :, 2], cv2.COLOR_GRAY2BGR)
@@ -68,6 +69,6 @@ while (keep_processing):
 #####################################################################
 
 # Author : Toby Breckon
-# Copyright (c) 2022-25 Dept Computer Science, Durham University, UK
+# Copyright (c) 2022-26 Dept Computer Science, Durham University, UK
 
 #####################################################################
