@@ -9,7 +9,7 @@ based technique known as **[Mask R-CNN](https://viso.ai/deep-learning/mask-r-cnn
 
 Some quick steps to get you setup for object detection:
 
-1. In the browser, download and save file the code file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py) (left click mouse, __"Save Page As ..."__).
+1. In the browser, download and save file the code file [invisible_objects.py](https://raw.githubusercontent.com/tobybreckon/chroma-keying/refs/heads/main/src/invisible_objects.py) (right click mouse, __"Save Page As ..."__).
     
     _If you are working on a shared account_ (i.e. as a visitor to [Computer Science at Durham University](https://www.durham.ac.uk/departments/academic/computer-science/)), save this in the directory you created earlier (i.e. ```yourfirstname-initial/invisible_objects.py``` or similar) to avoid file conflicts with other users.
 
