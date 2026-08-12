@@ -59,6 +59,11 @@ def mouse_callback(event, x, y, flags, param):
 
 camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 
+# Set the desired resolution (e.g., Full HD 1920x1080)
+
+camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+
 # define display window
 
 window_name = "Live Camera Input with Invisibility Cloaking"
