@@ -1,6 +1,6 @@
 #####################################################################
 
-# Task 1 : capture live video from an attached camera
+# Task 1 : capture and blur live video from an attached camera
 
 #####################################################################
 
@@ -21,12 +21,12 @@ def nothing(x):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
 
 # define display window
 
 window_name = "Live Camera Input with Blurring"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 # add some track bar GUI controllers for smoothing filter parameters
 
@@ -97,19 +97,29 @@ while (keep_processing):
 
     cv2.imshow(window_name, smoothed_image)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
 
     # wait 40ms or less for a key press from the user
     # depending on processing time taken (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(max(2, 40 - int(math.ceil(stop_t)))) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
+
+    # - if user presses "f" then switch to fullscreen
+
+    elif (key == ord('f')):
+        print("\n -- toggle fullscreen.")
+        last_fs = cv2.getWindowProperty(window_name,
+                                        cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN &
+                              ~(int(last_fs)))
 
 #####################################################################
 
-# Author : Toby Breckon, toby.breckon@durham.ac.uk
-# Copyright (c) 2022 Dept Computer Science, Durham University, UK
+# Author : Toby Breckon
+# Copyright (c) 2022-25 Dept Computer Science, Durham University, UK
 
 #####################################################################

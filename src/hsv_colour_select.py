@@ -55,12 +55,12 @@ def mouse_callback(event, x, y, flags, param):
 
 # define video capture with access to camera 0
 
-camera = cv2.VideoCapture(0)
-
+camera = cv2.VideoCapture(0, cv2.CAP_V4L)
+1
 # define display window
 
 window_name = "Live Camera Input with Selected Hue Region"
-cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
+cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
 
 # set the mouse call back function that will be called every time
 # the mouse is clicked inside the display window
@@ -104,17 +104,27 @@ while (keep_processing):
 
     cv2.imshow(window_name, image_combined)
 
-    # start the event loop - if user presses "x" then exit
+    # start the event loop - if user presses "x" or ESC then exit
     # wait 40ms for a key press from the user (i.e. 1000ms / 25 fps = 40 ms)
 
     key = cv2.waitKey(40) & 0xFF
 
-    if (key == ord('x')):
+    if (key == ord('x') or key == ord('\x1b')):
         keep_processing = False
+
+    # - if user presses "f" then switch to fullscreen
+
+    elif (key == ord('f')):
+        print("\n -- toggle fullscreen.")
+        last_fs = cv2.getWindowProperty(window_name,
+                                        cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN,
+                              cv2.WINDOW_FULLSCREEN &
+                              ~(int(last_fs)))
 
 #####################################################################
 
 # Author : Toby Breckon / Magnus Bordewich
-# Copyright (c) 2022 Dept Computer Science, Durham University, UK
+# Copyright (c) 2022-25 Dept Computer Science, Durham University, UK
 
 #####################################################################
