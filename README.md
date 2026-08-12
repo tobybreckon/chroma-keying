@@ -4,6 +4,8 @@ This repository contains a set of computer science taster coding exercises for c
 
 [![Python - PEP8](https://github.com/tobybreckon/chroma-keying/actions/workflows/pep8-check.yml/badge.svg)](https://github.com/tobybreckon/chroma-keying/actions/workflows/pep8-check.yml)
 
+### [ **N.B. This version has HD resolution set on all camera feeds** ]
+
 ## Getting Started
 
 Four quick steps to get you started:
